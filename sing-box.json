@@ -77,6 +77,20 @@
             "type": "direct"
         },
         {
+            "type": "tun",
+            "tag": "tun-in",
+            "domain_strategy": "",
+            "interface_name": "tun0",
+            "inet4_address": "172.19.0.1\/30",
+            "mtu": 9000,
+            "auto_route": true,
+            "strict_route": true,
+            "stack": "system",
+            "endpoint_independent_nat": true,
+            "sniff": true,
+            "sniff_override_destination": false
+        },
+        {
             "domain_strategy": "",
             "listen": "0.0.0.0",
             "listen_port": 2080,
@@ -125,8 +139,8 @@
                 "🆎34@oneclickvpnkeys",
                 "🅰️54@oneclickvpnkeys",
                 "",
-                "TVCgynbvoidna",
-                "TVCxnlmriqwdg",
+                "TVCqinbbjniwr",
+                "TVCzparvmttle",
                 "",
                 "",
                 "",
@@ -181,8 +195,8 @@
                 "🆎34@oneclickvpnkeys",
                 "🅰️54@oneclickvpnkeys",
                 "",
-                "TVCgynbvoidna",
-                "TVCxnlmriqwdg",
+                "TVCqinbbjniwr",
+                "TVCzparvmttle",
                 "",
                 "",
                 "",
@@ -1006,7 +1020,7 @@
             }
         },
         {
-            "tag": "TVCgynbvoidna",
+            "tag": "TVCqinbbjniwr",
             "type": "shadowsocks",
             "server": "series-a2-mec.varzesh360.co",
             "server_port": 443,
@@ -1016,7 +1030,7 @@
             "plugin_opts": ""
         },
         {
-            "tag": "TVCxnlmriqwdg",
+            "tag": "TVCzparvmttle",
             "type": "shadowsocks",
             "server": "23.162.200.215",
             "server_port": 9090,
