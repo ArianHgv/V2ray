@@ -77,20 +77,6 @@
             "type": "direct"
         },
         {
-            "type": "tun",
-            "tag": "tun-in",
-            "domain_strategy": "",
-            "interface_name": "tun0",
-            "inet4_address": "172.19.0.1\/30",
-            "mtu": 9000,
-            "auto_route": true,
-            "strict_route": true,
-            "stack": "system",
-            "endpoint_independent_nat": true,
-            "sniff": true,
-            "sniff_override_destination": false
-        },
-        {
             "domain_strategy": "",
             "listen": "0.0.0.0",
             "listen_port": 2080,
@@ -106,112 +92,24 @@
             "type": "selector",
             "outbounds": [
                 "URL-TEST",
-                "⏬51@oneclickvpnkeys",
-                "⏬2@oneclickvpnkeys",
-                "♿5@oneclickvpnkeys",
-                "⏬5@oneclickvpnkeys",
-                "♿6@oneclickvpnkeys",
-                "⏸️7@oneclickvpnkeys",
-                "⏸️21@oneclickvpnkeys",
-                "⏸️23@oneclickvpnkeys",
-                "♿36@oneclickvpnkeys",
-                "⏸️18@oneclickvpnkeys",
-                "🇳🇦 -t.me\/NetFreedom0",
-                "❎75@oneclickvpnkeys",
-                "❎71@oneclickvpnkeys",
-                "3493-t.me\/NetFreedom0",
-                "⭕4@oneclickvpnkeys",
-                "❎6@oneclickvpnkeys",
-                "❎64@oneclickvpnkeys",
-                "❎14@oneclickvpnkeys",
-                "040-t.me\/NetFreedom0",
-                "❎33@oneclickvpnkeys",
-                "❎74@oneclickvpnkeys",
-                "@Free_V2rng",
-                "@Gp_Config 👑 گروه ما",
-                "@Gp_Config 👑 گروه ما",
-                "🅰️12@oneclickvpnkeys",
-                "🅰️41@oneclickvpnkeys",
-                "🅰️13@oneclickvpnkeys",
-                "🆎1@oneclickvpnkeys",
-                "🆎9@oneclickvpnkeys",
-                "🆎33@oneclickvpnkeys",
-                "🆎34@oneclickvpnkeys",
-                "🅰️54@oneclickvpnkeys",
-                "",
-                "TVCqinbbjniwr",
-                "TVCzparvmttle",
-                "",
-                "",
-                "",
-                "",
-                "🆑60@oneclickvpnkeys",
-                "🆑28@oneclickvpnkeys",
-                "🆑39@oneclickvpnkeys",
-                "🆑11@oneclickvpnkeys",
-                "🆑51@oneclickvpnkeys",
-                "🆑57@oneclickvpnkeys",
-                "🆑64@oneclickvpnkeys",
-                "🆑53@oneclickvpnkeys",
-                "🆑52@oneclickvpnkeys",
-                "🆑32@oneclickvpnkeys",
-                "🇳🇦 -t.me\/NetFreedom0"
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)"
             ]
         },
         {
             "tag": "URL-TEST",
             "type": "urltest",
             "outbounds": [
-                "⏬51@oneclickvpnkeys",
-                "⏬2@oneclickvpnkeys",
-                "♿5@oneclickvpnkeys",
-                "⏬5@oneclickvpnkeys",
-                "♿6@oneclickvpnkeys",
-                "⏸️7@oneclickvpnkeys",
-                "⏸️21@oneclickvpnkeys",
-                "⏸️23@oneclickvpnkeys",
-                "♿36@oneclickvpnkeys",
-                "⏸️18@oneclickvpnkeys",
-                "🇳🇦 -t.me\/NetFreedom0",
-                "❎75@oneclickvpnkeys",
-                "❎71@oneclickvpnkeys",
-                "3493-t.me\/NetFreedom0",
-                "⭕4@oneclickvpnkeys",
-                "❎6@oneclickvpnkeys",
-                "❎64@oneclickvpnkeys",
-                "❎14@oneclickvpnkeys",
-                "040-t.me\/NetFreedom0",
-                "❎33@oneclickvpnkeys",
-                "❎74@oneclickvpnkeys",
-                "@Free_V2rng",
-                "@Gp_Config 👑 گروه ما",
-                "@Gp_Config 👑 گروه ما",
-                "🅰️12@oneclickvpnkeys",
-                "🅰️41@oneclickvpnkeys",
-                "🅰️13@oneclickvpnkeys",
-                "🆎1@oneclickvpnkeys",
-                "🆎9@oneclickvpnkeys",
-                "🆎33@oneclickvpnkeys",
-                "🆎34@oneclickvpnkeys",
-                "🅰️54@oneclickvpnkeys",
-                "",
-                "TVCqinbbjniwr",
-                "TVCzparvmttle",
-                "",
-                "",
-                "",
-                "",
-                "🆑60@oneclickvpnkeys",
-                "🆑28@oneclickvpnkeys",
-                "🆑39@oneclickvpnkeys",
-                "🆑11@oneclickvpnkeys",
-                "🆑51@oneclickvpnkeys",
-                "🆑57@oneclickvpnkeys",
-                "🆑64@oneclickvpnkeys",
-                "🆑53@oneclickvpnkeys",
-                "🆑52@oneclickvpnkeys",
-                "🆑32@oneclickvpnkeys",
-                "🇳🇦 -t.me\/NetFreedom0"
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)"
             ],
             "url": "https:\/\/www.gstatic.com\/generate_204",
             "interval": "3m",
@@ -234,366 +132,11 @@
             "type": "dns"
         },
         {
-            "tag": "⏬51@oneclickvpnkeys",
+            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
             "type": "vless",
-            "server": "2.189.130.78",
-            "server_port": 43675,
-            "uuid": "ace6b95a-f554-4804-867b-bcb2289c49aa",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/",
-                "headers": {
-                    "Host": "2.189.130.78"
-                }
-            }
-        },
-        {
-            "tag": "⏬2@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "51.68.206.229",
-            "server_port": 8118,
-            "method": "aes-256-gcm",
-            "password": "cdBIDV42DCwnfIN",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "♿5@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "series-a2.samanehha.co",
-            "server_port": 443,
-            "method": "chacha20-ietf-poly1305",
-            "password": "mps3FwmDjLrWaOVg",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "⏬5@oneclickvpnkeys",
-            "type": "trojan",
-            "server": "45.76.130.173",
-            "server_port": 443,
-            "password": "wkmY1R4EcP",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "z-v2-003289.kailib.com",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            }
-        },
-        {
-            "tag": "♿6@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "series-a1.samanehha.co",
-            "server_port": 443,
-            "method": "chacha20-ietf-poly1305",
-            "password": "W74XFALLLuw6m5IA",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "⏸️7@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "www.ilovepdf.com",
-            "server_port": 443,
-            "uuid": "AlphaOmegaFree",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "nl-free2.alphaspeedtest.com",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/wss9000?ed=2560",
-                "headers": {
-                    "Host": "nl-free2.alphaspeedtest.com"
-                }
-            }
-        },
-        {
-            "tag": "⏸️21@oneclickvpnkeys",
-            "type": "trojan",
-            "server": "104.19.171.5",
-            "server_port": 443,
-            "password": "cb1f26aa437d4bfa9b841d28503ce8cc",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "jobscareerforlawyers.com",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/6b777a91",
-                "headers": {
-                    "Host": "jobscareerforlawyers.com"
-                }
-            }
-        },
-        {
-            "tag": "⏸️23@oneclickvpnkeys",
-            "type": "vless",
-            "server": "5.44.42.121",
-            "server_port": 443,
-            "uuid": "a9a5c647-8f59-454c-a5b1-a1c198e4ac1e",
-            "flow": "xtls-rprx-vision",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "amazon.oapdis.com",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            }
-        },
-        {
-            "tag": "♿36@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "188.114.97.3",
-            "server_port": 443,
-            "uuid": "f584de15-2034-4170-a723-f48c2bae5e0f",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "afrhms16v.bestxray.buzz",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/linkws",
-                "headers": {
-                    "Host": "afrhms16v.bestxray.buzz"
-                }
-            }
-        },
-        {
-            "tag": "⏸️18@oneclickvpnkeys",
-            "type": "vless",
-            "server": "tomat.minusober.com",
-            "server_port": 443,
-            "uuid": "392a24d2-b87c-498e-a97a-51f3027f05c6",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "tomat.minusober.com",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/tomat",
-                "headers": {
-                    "Host": "tomat.minusober.com"
-                }
-            }
-        },
-        {
-            "tag": "🇳🇦 -t.me\/NetFreedom0",
-            "type": "vless",
-            "server": "162.159.32.35",
-            "server_port": 443,
-            "uuid": "664f5f11-1231-486d-b416-b7b3ecdae76a",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "HETZNER-D.pages.DEV",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/",
-                "headers": {
-                    "Host": "HETZNER-D.pages.DEV"
-                }
-            }
-        },
-        {
-            "tag": "❎75@oneclickvpnkeys",
-            "type": "vless",
-            "server": "104.22.2.79",
-            "server_port": 443,
-            "uuid": "664f5f11-1231-486d-b416-b7b3ecdae76a",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "HETZNER-D.pages.DEV",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/",
-                "headers": {
-                    "Host": "HETZNER-D.pages.DEV"
-                }
-            }
-        },
-        {
-            "tag": "❎71@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "188.114.96.6",
-            "server_port": 443,
-            "uuid": "5b0a489e-e9eb-41b1-902e-d4acad667ba6",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "accessories8.freeairlaines.com",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "grpc",
-                "service_name": "argo",
-                "idle_timeout": "15s",
-                "ping_timeout": "15s",
-                "permit_without_stream": false
-            }
-        },
-        {
-            "tag": "3493-t.me\/NetFreedom0",
-            "type": "vmess",
-            "server": "172.67.194.57",
-            "server_port": 443,
-            "uuid": "9aaceca0-bc5b-49e6-a83f-088e14d94434",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "no1-vmess.sshmax.xyz",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/vmess",
-                "headers": {
-                    "Host": "no1-vmess.sshmax.xyz"
-                }
-            }
-        },
-        {
-            "tag": "⭕4@oneclickvpnkeys",
-            "type": "vless",
-            "server": "172.64.229.28",
+            "server": "mci.biglog.sbs",
             "server_port": 8443,
-            "uuid": "86cb9a9b-dc2e-45d6-b35d-7ce1daa32a15",
+            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
             "flow": "",
             "packet_encoding": "xudp",
             "multiplex": {
@@ -603,763 +146,28 @@
             },
             "tls": {
                 "enabled": true,
-                "server_name": "dns68.shift.cloudns.org",
+                "server_name": "Nocdn.biglog.sbs",
                 "insecure": true,
                 "disable_sni": false,
                 "utls": {
                     "enabled": true,
                     "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/Path\/Telegram@V2ray_Alpha\/",
-                "headers": {
-                    "Host": "dns68.shift.cloudns.org"
-                }
-            }
-        },
-        {
-            "tag": "❎6@oneclickvpnkeys",
-            "type": "vless",
-            "server": "104.18.106.64",
-            "server_port": 443,
-            "uuid": "d674009a-4a87-4180-a8fe-9a54f66bd7c9",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "vpn.restia.love",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/",
-                "headers": {
-                    "Host": "vpn.restia.love"
-                }
-            }
-        },
-        {
-            "tag": "❎64@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "136.175.177.45",
-            "server_port": 35694,
-            "uuid": "603684a2-d080-40d7-d09c-afc3ac036eb4",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/fsdafa",
-                "headers": {
-                    "Host": ""
-                }
-            }
-        },
-        {
-            "tag": "❎14@oneclickvpnkeys",
-            "type": "vless",
-            "server": "speedtest.org",
-            "server_port": 443,
-            "uuid": "1d86846c-5a27-43c8-8981-57bb75c82195",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "polo.gdorri.info",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/paradise",
-                "headers": {
-                    "Host": "polo.gdorri.info"
-                }
-            }
-        },
-        {
-            "tag": "040-t.me\/NetFreedom0",
-            "type": "vmess",
-            "server": "104.21.69.44",
-            "server_port": 8880,
-            "uuid": "f9416b3e-e0d5-4876-fe97-46aac208211a",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/",
-                "headers": {
-                    "Host": ""
-                }
-            }
-        },
-        {
-            "tag": "❎33@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "199.247.3.99",
-            "server_port": 8570,
-            "uuid": "fe73f880-51ad-454b-a456-eb62342bf753",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            }
-        },
-        {
-            "tag": "❎74@oneclickvpnkeys",
-            "type": "vless",
-            "server": "104.17.42.10",
-            "server_port": 443,
-            "uuid": "664f5f11-1231-486d-b416-b7b3ecdae76a",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "HETZNER-D.pages.DEV",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/",
-                "headers": {
-                    "Host": "HETZNER-D.pages.DEV"
-                }
-            }
-        },
-        {
-            "tag": "@Free_V2rng",
-            "type": "vmess",
-            "server": "199.247.3.99",
-            "server_port": 2185,
-            "uuid": "0c9abca5-ba7c-4e73-cbdd-b9f8469edc4f",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            }
-        },
-        {
-            "tag": "@Gp_Config 👑 گروه ما",
-            "type": "vmess",
-            "server": "172.67.71.160",
-            "server_port": 443,
-            "uuid": "05641cf5-58d2-4ba4-a9f1-b3cda0b1fb1d",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "obdii.cfd",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/linkws",
-                "headers": {
-                    "Host": "obdii.cfd"
-                }
-            }
-        },
-        {
-            "tag": "@Gp_Config 👑 گروه ما",
-            "type": "shadowsocks",
-            "server": "series-a2.varzesh360.co",
-            "server_port": 443,
-            "method": "chacha20-ietf-poly1305",
-            "password": "mps3FwmDjLrWaOVg",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "🅰️12@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "45.95.233.21",
-            "server_port": 443,
-            "method": "chacha20-ietf-poly1305",
-            "password": "OJsrJeygSwX4",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "🅰️41@oneclickvpnkeys",
-            "type": "vless",
-            "server": "hajimamadvpn.timeclassic.ir",
-            "server_port": 80,
-            "uuid": "c463729a-0f55-4a26-b076-c774590c4076",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/@HAJIMAMADVPN",
-                "headers": {
-                    "Host": "hajimamadvpn.timeclassic.ir"
-                }
-            }
-        },
-        {
-            "tag": "🅰️13@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "169.197.142.216",
-            "server_port": 7002,
-            "method": "aes-256-gcm",
-            "password": "RexnBgU7EV5ADxG",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "🆎1@oneclickvpnkeys",
-            "type": "vless",
-            "server": "v2raxx.amalfatm.ir",
-            "server_port": 8080,
-            "uuid": "14f5b3d7-6ba6-4040-8e9e-12b75666b73c",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/V2RAXX-V2RAXX-V2RAXX",
-                "headers": {
-                    "Host": "v2raxx.amalfatm.ir"
-                }
-            }
-        },
-        {
-            "tag": "🆎9@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "134.195.196.178",
-            "server_port": 800,
-            "method": "chacha20-ietf-poly1305",
-            "password": "G!yBwPWH3Vao",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "🆎33@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "172.67.170.13",
-            "server_port": 443,
-            "uuid": "76221bfb-e92f-4e80-81c5-6fe48f50ac0b",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "glweidf.sbs",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/linkws",
-                "headers": {
-                    "Host": "glweidf.sbs"
-                }
-            }
-        },
-        {
-            "tag": "🆎34@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "77.75.230.125",
-            "server_port": 8080,
-            "uuid": "d466dd36-8b86-48b7-b0f0-67e7d128de6c",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/vmess",
-                "headers": {
-                    "Host": ""
-                }
-            }
-        },
-        {
-            "tag": "🅰️54@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "104.21.15.212",
-            "server_port": 443,
-            "uuid": "76221bfb-e92f-4e80-81c5-6fe48f50ac0b",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "glweidf.sbs",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/linkws",
-                "headers": {
-                    "Host": "glweidf.sbs"
-                }
-            }
-        },
-        {
-            "tag": "",
-            "type": "vmess",
-            "server": "94.182.150.231",
-            "server_port": 80,
-            "uuid": "2b7ce1d2-0372-4104-aa06-f7d999f26e1d",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            }
-        },
-        {
-            "tag": "TVCqinbbjniwr",
-            "type": "shadowsocks",
-            "server": "series-a2-mec.varzesh360.co",
-            "server_port": 443,
-            "method": "chacha20-ietf-poly1305",
-            "password": "u17T3BvpYaaiuW2c",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "TVCzparvmttle",
-            "type": "shadowsocks",
-            "server": "23.162.200.215",
-            "server_port": 9090,
-            "method": "aes-256-gcm",
-            "password": "Y6R9pAtvxxzmGC",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "",
-            "type": "vmess",
-            "server": "cdnikuancdnikuan.internetcdn.ggff.net",
-            "server_port": 8880,
-            "uuid": "900e4ca6-6a5d-4f29-88b9-f57c4dcb4ff5",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/microsoft",
-                "headers": {
-                    "Host": ""
-                }
-            }
-        },
-        {
-            "tag": "",
-            "type": "vmess",
-            "server": "cdnikuancdnikuan.internetcdn.ggff.net",
-            "server_port": 8080,
-            "uuid": "900e4ca6-6a5d-4f29-88b9-f57c4dcb4ff5",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/Microsoftupdate",
-                "headers": {
-                    "Host": ""
-                }
-            }
-        },
-        {
-            "tag": "",
-            "type": "vmess",
-            "server": "exclusively-foriran.internetcdn.ggff.net",
-            "server_port": 8880,
-            "uuid": "900e4ca6-6a5d-4f29-88b9-f57c4dcb4ff5",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/microsoft",
-                "headers": {
-                    "Host": ""
-                }
-            }
-        },
-        {
-            "tag": "",
-            "type": "vmess",
-            "server": "104.21.80.53",
-            "server_port": 2053,
-            "uuid": "f8d2fd33-ab8e-4004-f97d-10dde80af010",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "qin14.rong1104.uk",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/qin14",
-                "headers": {
-                    "Host": "qin14.rong1104.uk"
-                }
-            }
-        },
-        {
-            "tag": "🆑60@oneclickvpnkeys",
-            "type": "vless",
-            "server": "143.244.198.150",
-            "server_port": 15304,
-            "uuid": "5b5a7ec8-74c4-4988-8ca6-601d2fb41e57",
-            "flow": "xtls-rprx-vision",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "Elastic.co",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "firefox"
-                },
-                "reality": {
-                    "enabled": true,
-                    "public_key": "phgNsLfowXADv_-5DiEZddVULlGT94pCBgte8jHTix8",
-                    "short_id": "3327f887"
-                }
-            }
-        },
-        {
-            "tag": "🆑28@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "147.135.115.28",
-            "server_port": 59988,
-            "uuid": "cfd7a05c-82cf-436d-abce-8b2245b76472",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            }
-        },
-        {
-            "tag": "🆑39@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "23.162.200.28",
-            "server_port": 3389,
-            "method": "aes-256-gcm",
-            "password": "Y6R9pAtvxxzmGC",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "🆑11@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "23.162.200.77",
-            "server_port": 5499,
-            "method": "aes-256-gcm",
-            "password": "lGqs95QkFHo2NV",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "🆑51@oneclickvpnkeys",
-            "type": "vless",
-            "server": "lightning6-joinbede.filj.top",
-            "server_port": 8880,
-            "uuid": "c58f045f-02e2-448c-af36-f6fbc62aba85",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/@LIGHTNING6, @LIGHTNING6, @LIGHTNING6, @LIGHTNING6,@LIGHTNING6,@LIGHTNING6,@LIGHTNING6,@LIGHTNING6",
-                "headers": {
-                    "Host": "lightning6-joinbede.filj.top"
-                }
-            }
-        },
-        {
-            "tag": "🆑57@oneclickvpnkeys",
-            "type": "shadowsocks",
-            "server": "23.157.40.29",
-            "server_port": 6697,
-            "method": "aes-256-gcm",
-            "password": "TEzjfAYq2IjtuoS",
-            "plugin": "",
-            "plugin_opts": ""
-        },
-        {
-            "tag": "🆑64@oneclickvpnkeys",
-            "type": "vless",
-            "server": "94.237.82.156",
-            "server_port": 8880,
-            "uuid": "9578a360-bead-4737-be95-6a9ba92ca8ac",
-            "flow": "xtls-rprx-vision",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "saymypack.irancell.ir",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                },
-                "reality": {
-                    "enabled": true,
-                    "public_key": "3D82N0VG_zZ1tGldh1IbQuLXuz9nSjsk4xIJ4YUp8Vc",
-                    "short_id": "4f3caef0"
                 }
             },
             "transport": {
                 "type": "grpc",
-                "service_name": "@zabuza_shop.@zabuza_shop.@zabuza_shop",
+                "service_name": "ORB",
                 "idle_timeout": "15s",
                 "ping_timeout": "15s",
                 "permit_without_stream": false
             }
         },
         {
-            "tag": "🆑53@oneclickvpnkeys",
+            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
             "type": "vless",
-            "server": "185.146.173.94",
-            "server_port": 8880,
-            "uuid": "c58f045f-02e2-448c-af36-f6fbc62aba85",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/@LIGHTNING6, @LIGHTNING6, @LIGHTNING6, @LIGHTNING6,@LIGHTNING6,@LIGHTNING6,@LIGHTNING6,@LIGHTNING6",
-                "headers": {
-                    "Host": "185.146.173.94"
-                }
-            }
-        },
-        {
-            "tag": "🆑52@oneclickvpnkeys",
-            "type": "vless",
-            "server": "185.146.173.95",
-            "server_port": 8880,
-            "uuid": "c58f045f-02e2-448c-af36-f6fbc62aba85",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/@LIGHTNING6, @LIGHTNING6, @LIGHTNING6, @LIGHTNING6,@LIGHTNING6,@LIGHTNING6,@LIGHTNING6,@LIGHTNING6",
-                "headers": {
-                    "Host": "185.146.173.95"
-                }
-            }
-        },
-        {
-            "tag": "🆑32@oneclickvpnkeys",
-            "type": "vmess",
-            "server": "zula.ir",
-            "server_port": 443,
-            "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-            "security": "auto",
-            "alter_id": 0,
-            "global_padding": false,
-            "authenticated_length": true,
-            "packet_encoding": "",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "martina.quest",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "ws",
-                "path": "\/linkvws",
-                "headers": {
-                    "Host": "martina.quest"
-                }
-            }
-        },
-        {
-            "tag": "🇳🇦 -t.me\/NetFreedom0",
-            "type": "vless",
-            "server": "104.16.61.8",
-            "server_port": 2053,
-            "uuid": "962a733d-2614-0b9b-7ffe-9ac92ffea8eb",
+            "server": "mci.biglog.sbs.",
+            "server_port": 8443,
+            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
             "flow": "",
             "packet_encoding": "xudp",
             "multiplex": {
@@ -1369,7 +177,7 @@
             },
             "tls": {
                 "enabled": true,
-                "server_name": "vcp3.cushingreflex5.workers.dev",
+                "server_name": "Nocdn.biglog.sbs",
                 "insecure": true,
                 "disable_sni": false,
                 "utls": {
@@ -1378,11 +186,135 @@
                 }
             },
             "transport": {
-                "type": "ws",
-                "path": "\/ahmedquran19.xyz:443\/current_time",
-                "headers": {
-                    "Host": "vcp3.cushingreflex5.workers.dev"
+                "type": "grpc",
+                "service_name": "ORB",
+                "idle_timeout": "15s",
+                "ping_timeout": "15s",
+                "permit_without_stream": false
+            }
+        },
+        {
+            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+            "type": "vless",
+            "server": "cdn.discordapp.com",
+            "server_port": 8443,
+            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
+            "flow": "",
+            "packet_encoding": "xudp",
+            "multiplex": {
+                "enabled": false,
+                "protocol": "smux",
+                "max_streams": 32
+            },
+            "tls": {
+                "enabled": true,
+                "server_name": "Nocdn.biglog.sbs",
+                "insecure": true,
+                "disable_sni": false,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
                 }
+            },
+            "transport": {
+                "type": "grpc",
+                "service_name": "ORB",
+                "idle_timeout": "15s",
+                "ping_timeout": "15s",
+                "permit_without_stream": false
+            }
+        },
+        {
+            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+            "type": "vless",
+            "server": "cdn.discordapp.com.",
+            "server_port": 8443,
+            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
+            "flow": "",
+            "packet_encoding": "xudp",
+            "multiplex": {
+                "enabled": false,
+                "protocol": "smux",
+                "max_streams": 32
+            },
+            "tls": {
+                "enabled": true,
+                "server_name": "Nocdn.biglog.sbs",
+                "insecure": true,
+                "disable_sni": false,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "transport": {
+                "type": "grpc",
+                "service_name": "ORB",
+                "idle_timeout": "15s",
+                "ping_timeout": "15s",
+                "permit_without_stream": false
+            }
+        },
+        {
+            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+            "type": "vless",
+            "server": "Proxy.shipish.ir",
+            "server_port": 8443,
+            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
+            "flow": "",
+            "packet_encoding": "xudp",
+            "multiplex": {
+                "enabled": false,
+                "protocol": "smux",
+                "max_streams": 32
+            },
+            "tls": {
+                "enabled": true,
+                "server_name": "Nocdn.biglog.sbs",
+                "insecure": true,
+                "disable_sni": false,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "transport": {
+                "type": "grpc",
+                "service_name": "ORB",
+                "idle_timeout": "15s",
+                "ping_timeout": "15s",
+                "permit_without_stream": false
+            }
+        },
+        {
+            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
+            "type": "vless",
+            "server": "Proxy.shipish.ir.",
+            "server_port": 8443,
+            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
+            "flow": "",
+            "packet_encoding": "xudp",
+            "multiplex": {
+                "enabled": false,
+                "protocol": "smux",
+                "max_streams": 32
+            },
+            "tls": {
+                "enabled": true,
+                "server_name": "Nocdn.biglog.sbs",
+                "insecure": true,
+                "disable_sni": false,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "transport": {
+                "type": "grpc",
+                "service_name": "ORB",
+                "idle_timeout": "15s",
+                "ping_timeout": "15s",
+                "permit_without_stream": false
             }
         }
     ],
