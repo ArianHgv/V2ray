@@ -2,7 +2,9 @@
 //profile-update-interval: 48
 
 
-     {
+{
+  "outbounds": [
+    {
       "obfs": {
         "password": "4ff648165e163025",
         "type": "salamander"
