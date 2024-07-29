@@ -1,4 +1,4 @@
-//profile-title: base64:V2luZHNjcmliZSBvbiBIMiAoaGlkZGlmeSBvdXRib3VuZCk=
+//profile-title: base64:SDIgQ29uZ2lm
 //profile-update-interval: 48
 
 {
@@ -22,6 +22,71 @@
       "type": "hysteria2",
       "domain_strategy": "",
       "tag": "🇸🇪H2"
-}
+},
+    {
+      "obfs": {
+        "password": "fd784f88798796c1",
+        "type": "salamander"
+      },
+      "password": "04bb42227f7c629c",
+      "server": "77.91.87.167",
+      "server_port": 2087,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "www.google.c"
+      },
+      "up_mbps": 0,
+      "type": "hysteria2",
+      "domain_strategy": "",
+      "tag": "🇸🇪🟡 myH24️⃣"
+    },
+    {
+      "obfs": {
+        "password": "fd784f88798796c1",
+        "type": "salamander"
+      },
+      "password": "04bb42227f7c629c",
+      "server": "77.91.87.167",
+      "server_port": 2087,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "www.google.c"
+      },
+      "up_mbps": 0,
+      "type": "hysteria2",
+      "domain_strategy": "",
+      "tag": "🇸🇪🟡myH2 on Warp4️⃣",
+      "detour": "🇮🇷 WARP+"
+    },
+    {
+      "obfs": {
+        "password": "fd784f88798796c1",
+        "type": "salamander"
+      },
+      "password": "04bb42227f7c629c",
+      "server": "2a12:5940:bbac::2",
+      "server_port": 2087,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "www.google.c"
+      },
+      "up_mbps": 0,
+      "type": "hysteria2",
+      "domain_strategy": "",
+      "tag": "🇸🇪🟡myH2 on Warp6️⃣",
+      "detour": "🇮🇷 WARP+6️⃣"
+    }
 ]
 }
