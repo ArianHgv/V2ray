@@ -33,6 +33,56 @@
       "type": "hysteria2",
       "domain_strategy": "",
       "tag": "🇸🇪H2"
+},
+{
+      "type": "urltest",
+      "tag": "Best Latency",
+      "outbounds": [
+        "🇩🇪 WARP+ detour4️⃣",
+        "🇩🇪 WARP+ detour6️⃣",
+      ],
+      "url": "http://www.google.com/generate_204",
+      "interval": "10m0s",
+      "tolerance": 50,
+      "idle_timeout": "30m0s"
+    },
+{
+  "type": "wireguard",
+  "tag": "🇩🇪 WARP+ detour4️⃣",
+  "detour": "🇮🇷 WARP+",
+  "server": "188.114.96.78",
+  "server_port": 955,
+  "local_address": [
+    "172.16.0.2/32",
+    "2606:4700:110:8d6c:45f2:d6c:544e:49e5/128"
+  ],
+  "private_key": "ONlvNUodQ5sUM6cB7v1D/OasYhX9UI1XcPMlETaM730=",
+  "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+  "reserved": [
+    240,
+    151,
+    246
+  ],
+  "mtu": 1280
+},
+{
+  "type": "wireguard",
+  "tag": "🇩🇪 WARP+ detour6️⃣",
+  "detour": "🇮🇷 WARP+6️⃣",
+  "server": "188.114.96.78",
+  "server_port": 955,
+  "local_address": [
+    "172.16.0.2/32",
+    "2606:4700:110:8d6c:45f2:d6c:544e:49e5/128"
+  ],
+  "private_key": "ONlvNUodQ5sUM6cB7v1D/OasYhX9UI1XcPMlETaM730=",
+  "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+  "reserved": [
+    240,
+    151,
+    246
+  ],
+  "mtu": 1280
 }
 ]
 }
