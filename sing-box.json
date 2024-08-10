@@ -5,385 +5,1081 @@
 //profile-web-page-url: https://t.me/V2rayCollectorBot
 
 {
-    "log": {
-        "disabled": false,
-        "level": "fatal",
-        "timestamp": true
-    },
-    "experimental": {
-        "clash_api": {
-            "external_controller": "0.0.0.0:9090",
-            "external_ui": "yacd",
-            "external_ui_download_url": "https:\/\/github.com\/MetaCubeX\/Yacd-meta\/archive\/gh-pages.zip",
-            "external_ui_download_detour": "direct",
-            "secret": "",
-            "default_mode": "rule"
-        }
-    },
-    "dns": {
-        "servers": [
-            {
-                "address": "tcp:\/\/185.228.168.9",
-                "address_resolver": "dns-direct",
-                "strategy": "ipv4_only",
-                "tag": "dns-remote"
-            },
-            {
-                "address": "tcp:\/\/185.228.168.9",
-                "address_resolver": "dns-local",
-                "detour": "direct",
-                "strategy": "ipv4_only",
-                "tag": "dns-direct"
-            },
-            {
-                "address": "local",
-                "detour": "direct",
-                "tag": "dns-local"
-            },
-            {
-                "address": "rcode:\/\/success",
-                "tag": "dns-block"
-            }
-        ],
-        "rules": [
-            {
-                "domain_suffix": [
-                    ".ir"
-                ],
-                "server": "dns-direct"
-            },
-            {
-                "outbound": "direct",
-                "server": "dns-direct",
-                "rewrite_ttl": 20
-            },
-            {
-                "outbound": "any",
-                "server": "dns-direct",
-                "rewrite_ttl": 20
-            }
-        ],
-        "reverse_mapping": true,
-        "strategy": "ipv4_only",
-        "independent_cache": true
-    },
-    "inbounds": [
-        {
-            "listen": "0.0.0.0",
-            "listen_port": 6450,
-            "override_address": "8.8.8.8",
-            "override_port": 53,
-            "tag": "dns-in",
-            "type": "direct"
-        },
-        {
-            "domain_strategy": "",
-            "listen": "0.0.0.0",
-            "listen_port": 2080,
-            "sniff": true,
-            "sniff_override_destination": false,
-            "tag": "mixed-in",
-            "type": "mixed"
-        }
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
     ],
-    "outbounds": [
-        {
-            "tag": "proxy",
-            "type": "selector",
-            "outbounds": [
-                "URL-TEST",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)"
-            ]
-        },
-        {
-            "tag": "URL-TEST",
-            "type": "urltest",
-            "outbounds": [
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-                "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)"
-            ],
-            "url": "https:\/\/www.gstatic.com\/generate_204",
-            "interval": "3m",
-            "tolerance": 50
-        },
-        {
-            "tag": "direct",
-            "type": "direct"
-        },
-        {
-            "tag": "bypass",
-            "type": "direct"
-        },
-        {
-            "tag": "block",
-            "type": "block"
-        },
-        {
-            "tag": "dns-out",
-            "type": "dns"
-        },
-        {
-            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-            "type": "vless",
-            "server": "mci.biglog.sbs",
-            "server_port": 8443,
-            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "Nocdn.biglog.sbs",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "grpc",
-                "service_name": "ORB",
-                "idle_timeout": "15s",
-                "ping_timeout": "15s",
-                "permit_without_stream": false
-            }
-        },
-        {
-            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-            "type": "vless",
-            "server": "mci.biglog.sbs.",
-            "server_port": 8443,
-            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "Nocdn.biglog.sbs",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "grpc",
-                "service_name": "ORB",
-                "idle_timeout": "15s",
-                "ping_timeout": "15s",
-                "permit_without_stream": false
-            }
-        },
-        {
-            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-            "type": "vless",
-            "server": "cdn.discordapp.com",
-            "server_port": 8443,
-            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "Nocdn.biglog.sbs",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "grpc",
-                "service_name": "ORB",
-                "idle_timeout": "15s",
-                "ping_timeout": "15s",
-                "permit_without_stream": false
-            }
-        },
-        {
-            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-            "type": "vless",
-            "server": "cdn.discordapp.com.",
-            "server_port": 8443,
-            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "Nocdn.biglog.sbs",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "grpc",
-                "service_name": "ORB",
-                "idle_timeout": "15s",
-                "ping_timeout": "15s",
-                "permit_without_stream": false
-            }
-        },
-        {
-            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-            "type": "vless",
-            "server": "Proxy.shipish.ir",
-            "server_port": 8443,
-            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "Nocdn.biglog.sbs",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "grpc",
-                "service_name": "ORB",
-                "idle_timeout": "15s",
-                "ping_timeout": "15s",
-                "permit_without_stream": false
-            }
-        },
-        {
-            "tag": "Gig1(%F0%9F%93%8A0.01%20GB%20-%201%20GB%7C%F0%9F%93%860.9)",
-            "type": "vless",
-            "server": "Proxy.shipish.ir.",
-            "server_port": 8443,
-            "uuid": "e1ffbfea-f81a-49dd-8644-f65e1da106ce",
-            "flow": "",
-            "packet_encoding": "xudp",
-            "multiplex": {
-                "enabled": false,
-                "protocol": "smux",
-                "max_streams": 32
-            },
-            "tls": {
-                "enabled": true,
-                "server_name": "Nocdn.biglog.sbs",
-                "insecure": true,
-                "disable_sni": false,
-                "utls": {
-                    "enabled": true,
-                    "fingerprint": "chrome"
-                }
-            },
-            "transport": {
-                "type": "grpc",
-                "service_name": "ORB",
-                "idle_timeout": "15s",
-                "ping_timeout": "15s",
-                "permit_without_stream": false
-            }
-        }
+    "rules": [
+      {
+        "domain": [
+          "ch1.melobigg.site",
+          "series-a2-mec.varzesh360.co",
+          "melonmusic.ir",
+          "v2ray1ng.pages.dev",
+          "series-a2-me.varzesh360.co",
+          "caretaker.com",
+          "channel.hopev2ray.link",
+          "xs.wxtv.cc",
+          "pardazeshvpn-tg20.pages.dev",
+          "series-a2.varzesh360.co",
+          "zula.ir",
+          "tw1g.forlive.live",
+          "hms07.xfixedfloat.cfd",
+          "jahfkjha.cfd",
+          "linde06.indiavideo.sbs"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      },
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "server": "dns-direct"
+      }
     ],
-    "route": {
-        "auto_detect_interface": true,
-        "override_android_vpn": true,
-        "final": "proxy",
-        "geoip": {
-            "download_url": "https:\/\/github.com\/MiSaturo\/sing-box-geoip-ir\/releases\/latest\/download\/geoip.db",
-            "download_detour": "direct"
-        },
-        "geosite": {
-            "download_url": "https:\/\/github.com\/MasterKia\/iran-hosted-domains\/releases\/latest\/download\/iran-geosite.db",
-            "download_detour": "direct"
-        },
-        "rules": [
-            {
-                "outbound": "dns-out",
-                "port": [
-                    53
-                ]
-            },
-            {
-                "inbound": [
-                    "dns-in"
-                ],
-                "outbound": "dns-out"
-            },
-            {
-                "domain_suffix": [
-                    "ir"
-                ],
-                "outbound": "bypass"
-            },
-            {
-                "geoip": [
-                    "ir"
-                ],
-                "outbound": "bypass"
-            },
-            {
-                "geosite": [
-                    "ir"
-                ],
-                "outbound": "direct"
-            },
-            {
-                "geosite": [
-                    "other"
-                ],
-                "outbound": "direct"
-            },
-            {
-                "geosite": [
-                    "ads"
-                ],
-                "outbound": "block"
-            },
-            {
-                "ip_cidr": [
-                    "224.0.0.0\/3",
-                    "ff00::\/8"
-                ],
-                "outbound": "block",
-                "source_ip_cidr": [
-                    "224.0.0.0\/3",
-                    "ff00::\/8"
-                ]
-            }
-        ]
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "104.17.147.22",
+        "104.17.148.22",
+        "188.114.96.6",
+        "188.114.97.6"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 12334,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "set_system_proxy": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 16450
     }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇺🇸@PewezaVPN § 0",
+        "🇩🇪@PewezaVPN § 1",
+        "🇺🇸@PewezaVPN § 2",
+        "🇺🇸@PewezaVPN § 3",
+        "🇺🇸@PewezaVPN § 4",
+        "🇳🇱@PewezaVPN § 5",
+        "🇺🇸@PewezaVPN § 6",
+        "🇺🇸@PewezaVPN § 7",
+        "🇺🇸@PewezaVPN § 8",
+        "🇺🇸@PewezaVPN § 9",
+        "🇺🇸@PewezaVPN § 10",
+        "🇺🇸@PewezaVPN § 11",
+        "🇺🇸@PewezaVPN § 12",
+        "🇬🇧@PewezaVPN § 13",
+        "🇺🇸@PewezaVPN § 14",
+        "🇦🇪@PewezaVPN § 15",
+        "🇶🇦@PewezaVPN § 16",
+        "🇺🇸@PewezaVPN § 17",
+        "🇺🇸@PewezaVPN § 18",
+        "🇺🇸@PewezaVPN § 19",
+        "🇹🇼@PewezaVPN § 20",
+        "🇳🇱@PewezaVPN § 21",
+        "🇺🇸@PewezaVPN § 22",
+        "🇺🇸@PewezaVPN § 23",
+        "🇺🇸@PewezaVPN § 24",
+        "🇺🇸@PewezaVPN § 25",
+        "🇩🇪@PewezaVPN § 26",
+        "🇩🇪@PewezaVPN § 27",
+        "🇺🇸@PewezaVPN § 28",
+        "🇸🇪@PewezaVPN § 29",
+        "🇷🇺@PewezaVPN § 30",
+        "🇺🇸@PewezaVPN § 31",
+        "🇺🇸@PewezaVPN § 32",
+        "🇺🇸@PewezaVPN § 33",
+        "🇺🇸@PewezaVPN § 34",
+        "🇳🇱@PewezaVPN § 35",
+        "🇺🇸@PewezaVPN § 36",
+        "🇺🇸@PewezaVPN § 37",
+        "🇵🇱@PewezaVPN § 38",
+        "🇩🇪@PewezaVPN § 39",
+        "🇺🇸@PewezaVPN § 40",
+        "🇺🇸@PewezaVPN § 41",
+        "🇳🇱@PewezaVPN § 42"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇺🇸@PewezaVPN § 0",
+        "🇩🇪@PewezaVPN § 1",
+        "🇺🇸@PewezaVPN § 2",
+        "🇺🇸@PewezaVPN § 3",
+        "🇺🇸@PewezaVPN § 4",
+        "🇳🇱@PewezaVPN § 5",
+        "🇺🇸@PewezaVPN § 6",
+        "🇺🇸@PewezaVPN § 7",
+        "🇺🇸@PewezaVPN § 8",
+        "🇺🇸@PewezaVPN § 9",
+        "🇺🇸@PewezaVPN § 10",
+        "🇺🇸@PewezaVPN § 11",
+        "🇺🇸@PewezaVPN § 12",
+        "🇬🇧@PewezaVPN § 13",
+        "🇺🇸@PewezaVPN § 14",
+        "🇦🇪@PewezaVPN § 15",
+        "🇶🇦@PewezaVPN § 16",
+        "🇺🇸@PewezaVPN § 17",
+        "🇺🇸@PewezaVPN § 18",
+        "🇺🇸@PewezaVPN § 19",
+        "🇹🇼@PewezaVPN § 20",
+        "🇳🇱@PewezaVPN § 21",
+        "🇺🇸@PewezaVPN § 22",
+        "🇺🇸@PewezaVPN § 23",
+        "🇺🇸@PewezaVPN § 24",
+        "🇺🇸@PewezaVPN § 25",
+        "🇩🇪@PewezaVPN § 26",
+        "🇩🇪@PewezaVPN § 27",
+        "🇺🇸@PewezaVPN § 28",
+        "🇸🇪@PewezaVPN § 29",
+        "🇷🇺@PewezaVPN § 30",
+        "🇺🇸@PewezaVPN § 31",
+        "🇺🇸@PewezaVPN § 32",
+        "🇺🇸@PewezaVPN § 33",
+        "🇺🇸@PewezaVPN § 34",
+        "🇳🇱@PewezaVPN § 35",
+        "🇺🇸@PewezaVPN § 36",
+        "🇺🇸@PewezaVPN § 37",
+        "🇵🇱@PewezaVPN § 38",
+        "🇩🇪@PewezaVPN § 39",
+        "🇺🇸@PewezaVPN § 40",
+        "🇺🇸@PewezaVPN § 41",
+        "🇳🇱@PewezaVPN § 42"
+      ],
+      "url": "http://connectivitycheck.gstatic.com/generate_204",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 0",
+      "server": "172.67.207.26",
+      "server_port": 443,
+      "uuid": "76221bfb-e92f-4e80-81c5-6fe48f50ac0b",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "172.67.207.26",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "glweidf.sbs"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇩🇪@PewezaVPN § 1",
+      "server": "217.160.45.31",
+      "server_port": 8880,
+      "uuid": "4e186678-fcca-4325-e4bc-b2916bdf6708",
+      "security": "auto",
+      "authenticated_length": true,
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 2",
+      "server": "hms07.xfixedfloat.cfd",
+      "server_port": 443,
+      "uuid": "a1655f51-1e20-4a92-8a11-b7ca30a7a353",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "hms07.xfixedfloat.cfd",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "afrhms07.xfixedfloat.cfd"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 3",
+      "server": "104.18.202.232",
+      "server_port": 443,
+      "uuid": "17a7bf97-fef5-4101-a5c5-7c730fabeeee",
+      "tls": {
+        "enabled": true,
+        "server_name": "bpb-worker-panel-h5f.pages.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 4",
+      "server": "jahfkjha.cfd",
+      "server_port": 443,
+      "uuid": "950db6aa-4926-4616-816e-ec0312dcb87b",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "jahfkjha.cfd",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇳🇱@PewezaVPN § 5",
+      "server": "188.114.97.3",
+      "server_port": 443,
+      "uuid": "f584de15-2034-4170-a723-f48c2bae5e0f",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "188.114.97.3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "afrhms16v.bestxray.buzz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 6",
+      "server": "xs.wxtv.cc",
+      "server_port": 443,
+      "uuid": "d9eb0df3-3190-4447-86b6-656fe5ff1119",
+      "tls": {
+        "enabled": true,
+        "server_name": "mmdv2.pages.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 7",
+      "server": "linde06.indiavideo.sbs",
+      "server_port": 443,
+      "uuid": "edbb1059-1633-4271-b66e-ed4fba47a1bf",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "linde06.indiavideo.sbs",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "linde06.indiavideo.sbs"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 8",
+      "server": "zula.ir",
+      "server_port": 8443,
+      "uuid": "4f0efec2-9a6e-4122-9bcc-a8ab1c83c298",
+      "tls": {
+        "enabled": true,
+        "server_name": "telegram-falcunargo-ukrine.falcunar.asso.eu.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 9",
+      "server": "pardazeshvpn-tg20.pages.dev",
+      "server_port": 443,
+      "uuid": "826e43d2-dbe9-41a6-bbf8-3aed2f93f5d4",
+      "tls": {
+        "enabled": true,
+        "server_name": "pardazeshvpn-tg20.pages.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 10",
+      "server": "104.26.7.95",
+      "server_port": 80,
+      "uuid": "1f98b5cc-140f-46b4-987f-6936da9f2238",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇺🇸@PewezaVPN § 11",
+      "server": "15.204.87.225",
+      "server_port": 5499,
+      "method": "aes-256-gcm",
+      "password": "lGqs95QkFHo2NV"
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 12",
+      "server": "104.26.6.95",
+      "server_port": 80,
+      "uuid": "1f98b5cc-140f-46b4-987f-6936da9f2238",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇬🇧@PewezaVPN § 13",
+      "server": "series-a2.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "mps3FwmDjLrWaOVg"
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 14",
+      "server": "172.67.74.4",
+      "server_port": 443,
+      "uuid": "441da342-ce90-441e-bff9-d2ceb55e68ca",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "172.67.74.4",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ivideos.sbs/linkws",
+        "headers": {
+          "Host": "mikasa.yaemiko.cloudns.org"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇦🇪@PewezaVPN § 15",
+      "server": "series-a2-mec.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇶🇦@PewezaVPN § 16",
+      "server": "series-a2-me.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "Bog0ELmMM9DSxDdQ"
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 17",
+      "server": "xs.wxtv.cc",
+      "server_port": 443,
+      "uuid": "d9eb0df3-3190-4447-86b6-656fe5ff1119",
+      "tls": {
+        "enabled": true,
+        "server_name": "mmdv2.pages.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇺🇸@PewezaVPN § 18",
+      "server": "15.204.87.225",
+      "server_port": 8090,
+      "method": "aes-256-gcm",
+      "password": "PCnnH6SQSnfoS27"
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 19",
+      "server": "linde06.indiavideo.sbs",
+      "server_port": 443,
+      "uuid": "edbb1059-1633-4271-b66e-ed4fba47a1bf",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "linde06.indiavideo.sbs",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "linde06.indiavideo.sbs"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇹🇼@PewezaVPN § 20",
+      "server": "tw1g.forlive.live",
+      "server_port": 443,
+      "uuid": "4ccc923e-8452-418c-9222-87ee8f295e14",
+      "security": "auto",
+      "authenticated_length": true,
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tms.dingtalk.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱@PewezaVPN § 21",
+      "server": "185.142.238.222",
+      "server_port": 8443,
+      "uuid": "ae5aed77-be23-4f6c-bd51-c73745038952",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "maps.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "NbtOWq_km9k_SKgCJatXla3Jl7gGKVbjQ-GAtGg4bEk",
+          "short_id": "bfde1c85a6a4112a"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 22",
+      "server": "104.26.6.95",
+      "server_port": 80,
+      "uuid": "1f98b5cc-140f-46b4-987f-6936da9f2238",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 23",
+      "server": "caretaker.com",
+      "server_port": 443,
+      "uuid": "441da342-ce90-441e-bff9-d2ceb55e68ca",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "caretaker.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ivideos.sbs/linkws",
+        "headers": {
+          "Host": "mikasa.yaemiko.cloudns.org"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 24",
+      "server": "104.26.6.65",
+      "server_port": 443,
+      "uuid": "441da342-ce90-441e-bff9-d2ceb55e68ca",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "104.26.6.65",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ivideos.sbs/linkws",
+        "headers": {
+          "Host": "mikasa.yaemiko.cloudns.org"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 25",
+      "server": "melonmusic.ir",
+      "server_port": 8880,
+      "uuid": "1785f360-efb6-4a65-974e-3274135d35d3",
+      "transport": {
+        "type": "ws",
+        "path": "/kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava,kiava-kiava",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇩🇪@PewezaVPN § 26",
+      "server": "3.70.189.142",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "pfXBD/yEYUWIfK5kbwiycNKBo6C3/prnEupLfZceY34="
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇩🇪@PewezaVPN § 27",
+      "server": "18.194.83.186",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "0udBK2rmOBFatfY0Sp+1/jeeH4KGYZ5RDCJHTL0R0co="
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 28",
+      "server": "104.16.190.131",
+      "server_port": 443,
+      "uuid": "17a7bf97-fef5-4101-a5c5-7c730fabeeee",
+      "tls": {
+        "enabled": true,
+        "server_name": "bpb-worker-panel-h5f.pages.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇸🇪@PewezaVPN § 29",
+      "server": "185.146.173.134",
+      "server_port": 8080,
+      "uuid": "df471c1e-7f41-4fce-9a94-e63a53baaa80",
+      "transport": {
+        "type": "ws",
+        "path": "/melov2ray/melov2ray/melov2ray/melov2ray/melov2ray/melov2ray/melov2ray",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "🇷🇺@PewezaVPN § 30",
+      "server": "46.17.45.13",
+      "server_port": 49460,
+      "uuid": "1e7b7c32-a2f0-472a-9963-d330ccf83885",
+      "security": "auto",
+      "authenticated_length": true
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 31",
+      "server": "172.67.217.107",
+      "server_port": 80,
+      "uuid": "7143e704-5957-42db-bd38-670062722461",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram-@V2ray_Alpha/",
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 32",
+      "server": "v2ray1ng.pages.dev",
+      "server_port": 443,
+      "uuid": "1eb5e82f-a673-49b4-bd74-df04583e9011",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2ray1ng.pages.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@V2ray1_ng,@V2ray1_ng,@V2ray1_ng",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 33",
+      "server": "104.21.83.108",
+      "server_port": 443,
+      "uuid": "6c168fcc-2231-4f3b-8c1e-f6391692df4a",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "104.21.83.108",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/link",
+        "headers": {
+          "Host": "hms02.fxiaomi.sbs"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 34",
+      "server": "104.26.7.95",
+      "server_port": 80,
+      "uuid": "1f98b5cc-140f-46b4-987f-6936da9f2238",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram-------V2rayi_net_-_-_-_-Telegram-------V2rayi_net/",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱@PewezaVPN § 35",
+      "server": "188.114.98.224",
+      "server_port": 8080,
+      "uuid": "VPNCUSTOMiZE",
+      "transport": {
+        "type": "ws",
+        "path": "/Join--VPNCUSTOMIZE.V2ray.re",
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 36",
+      "server": "104.21.4.6",
+      "server_port": 443,
+      "uuid": "1052f24e-7b09-45eb-b0c5-d858eb124192",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "104.21.4.6",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "glweidf.cfd"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 37",
+      "server": "ch1.melobigg.site",
+      "server_port": 443,
+      "uuid": "02952842-d7fe-42d2-bebd-7e13ebee5d8e",
+      "tls": {
+        "enabled": true,
+        "server_name": "ch1.melobigg.site",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/melov2ray",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇵🇱@PewezaVPN § 38",
+      "server": "85.237.223.97",
+      "server_port": 18455,
+      "uuid": "63ca080f-8a77-448a-c0e5-e51550ea8a8c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.discordapp.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "SomlXujQWMa3UdJv8qsF4gbMVF_fH5ydgQVVeojovzo",
+          "short_id": "e8db0ada"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇩🇪@PewezaVPN § 39",
+      "server": "179.61.251.238",
+      "server_port": 8443,
+      "uuid": "c89de9c4-df81-48d4-abaf-334afff612a7",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "flutter.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "HWlARwnjdY9TQOW_jJZtTFNNgV-4PL2aoZ3XwZ8xAR8",
+          "short_id": "a66923d4"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸@PewezaVPN § 40",
+      "server": "5.161.159.111",
+      "server_port": 39379,
+      "uuid": "37b9c44c-bba1-4add-ac39-2f01774caa7d",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "discord.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "3TO2yeC8KYTVCLzLRR9dW4AAzHFGxorRZzvxdV2kDW4",
+          "short_id": "0333e61c"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸@PewezaVPN § 41",
+      "server": "channel.hopev2ray.link",
+      "server_port": 80,
+      "uuid": "8d6abe4b-4b36-475a-8d97-f59d8e5b72af",
+      "security": "auto",
+      "authenticated_length": true,
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "no2-vmess.sshmax.xyz"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇳🇱@PewezaVPN § 42",
+      "server": "188.114.97.3",
+      "server_port": 443,
+      "uuid": "edbb1059-1633-4271-b66e-ed4fba47a1bf",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "188.114.97.3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "linde06.indiavideo.sbs"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "10-20",
+        "sleep": "10-20"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      },
+      {
+        "geoip": "private",
+        "outbound": "bypass"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-ir.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-ir.srs",
+        "update_interval": "120h0m0s"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:16756",
+      "secret": "wT8vdShneEn9bdkA"
+    }
+  }
 }
