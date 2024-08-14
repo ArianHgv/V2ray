@@ -1,1 +1,187 @@
-{"log": {"disabled": true, "level": "fatal", "timestamp": true}, "dns": {"servers": [{"tag": "dns-remote", "address": "udp://94.140.14.14", "strategy": "prefer_ipv4", "detour": "✨باقی مانده: 29 روز"}, {"tag": "dns-local", "address": "udp://8.8.8.8", "detour": "direct"}, {"tag": "dns-resolver", "address": "178.22.122.100", "detour": "direct"}, {"tag": "dns-locale", "address": "https://dns.403.online/dns-query", "address_resolver": "dns-locale-resolver", "detour": "direct"}, {"tag": "dns-locale-resolver", "address": "10.202.10.202", "detour": "direct"}, {"tag": "dns-block", "address": "rcode://success"}], "rules": [{"domain": ["guixgnu.com"], "server": "dns-locale"}, {"outbound": "auto", "server": "dns-locale"}, {"outbound": "any", "server": "dns-local"}, {"domain_suffix": ".ir", "server": "dns-local"}], "final": "dns-remote", "reverse_mapping": true, "disable_cache": true}, "inbounds": [{"type": "tun", "tag": "tun-in", "interface_name": "tun0", "mtu": 9000, "inet4_address": "172.19.0.1/30", "inet4_route_exclude_address": ["192.168.0.0/16"], "inet6_route_exclude_address": ["fc00::/7"], "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": false}], "outbounds": [{"type": "direct", "tag": "direct"}, {"type": "block", "tag": "block"}, {"type": "dns", "tag": "dns-out"}, {"type": "vmess", "tag": "Iran 1\ud83c\uddee\ud83c\uddf7", "server": "ir.fursaw.xyz", "server_port": 443, "transport": {"type": "ws", "path": "/connect/de/", "headers": {"Host": "guixgnu.com"}, "max_early_data": 1024, "early_data_header_name": "Sec-WebSocket-Protocol"}, "tls": {"enabled": true, "server_name": "guixgnu.com", "utls": {"enabled": true, "fingerprint": "chrome"}}, "uuid": "63992c8d-92fa-4410-89de-77a2e951a660"}, {"type": "vmess", "tag": "Iran 2\ud83c\uddee\ud83c\uddf7", "server": "ir2.fursaw.xyz", "server_port": 443, "transport": {"type": "ws", "path": "/connect/de/", "headers": {"Host": "guixgnu.com"}, "max_early_data": 1024, "early_data_header_name": "Sec-WebSocket-Protocol"}, "tls": {"enabled": true, "server_name": "guixgnu.com", "utls": {"enabled": true, "fingerprint": "chrome"}}, "uuid": "63992c8d-92fa-4410-89de-77a2e951a660"}, {"type": "vmess", "tag": "Hamrah Aval \ud83c\uddf3\ud83c\uddf1\u2b50\ufe0f", "server": "fursaw.xyz", "server_port": 80, "transport": {"type": "ws", "path": "/connect/de/", "headers": {"Host": "ftp.debian.org.stackoverflow.com.www.speedtest.net.nobitex.ir.dRBiA.iR.", "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"}, "max_early_data": 1024, "early_data_header_name": "Sec-WebSocket-Protocol"}, "uuid": "63992c8d-92fa-4410-89de-77a2e951a660"}, {"type": "vmess", "tag": "Irancell \ud83c\uddf3\ud83c\uddf1\u2b50\ufe0f", "server": "libsem.org", "server_port": 80, "transport": {"type": "ws", "path": "/connect/de/", "headers": {"Host": "ftp.debian.org.stackoverflow.com.www.speedtest.net.nobitex.ir.api.LIbSem.oRg.", "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"}, "max_early_data": 1024, "early_data_header_name": "Sec-WebSocket-Protocol"}, "uuid": "63992c8d-92fa-4410-89de-77a2e951a660"}, {"type": "hysteria2", "tag": "IPv6 \ud83c\uddf3\ud83c\uddf1", "server": "v6.fursaw.xyz", "server_port": 7443, "obfs": {"type": "salamander", "password": "8tN8ickOvd34"}, "password": "63992c8d-92fa-4410-89de-77a2e951a660", "tls": {"enabled": true, "server_name": "zara.com", "insecure": true}}, {"type": "hysteria2", "tag": "Plus \ud83c\uddf3\ud83c\uddf1", "server": "a3.ip4-info.com", "server_port": 7443, "obfs": {"type": "salamander", "password": "8tN8ickOvd34"}, "password": "63992c8d-92fa-4410-89de-77a2e951a660", "tls": {"enabled": true, "server_name": "zara.com", "insecure": true}}, {"type": "urltest", "tag": "auto", "outbounds": ["direct"], "url": "https://guixgnu.com", "interval": "30s", "tolerance": 5000, "idle_timeout": "0", "interrupt_exist_connections": true}, {"type": "selector", "tag": "✨باقی مانده: 29 روز", "interrupt_exist_connections": true, "outbounds": ["Plus \ud83c\uddf3\ud83c\uddf1", "IPv6 \ud83c\uddf3\ud83c\uddf1", "Iran 1\ud83c\uddee\ud83c\uddf7", "Iran 2\ud83c\uddee\ud83c\uddf7", "Hamrah Aval \ud83c\uddf3\ud83c\uddf1\u2b50\ufe0f", "Irancell \ud83c\uddf3\ud83c\uddf1\u2b50\ufe0f"]}], "route": {"rules": [{"protocol": "dns", "outbound": "dns-out"}, {"domain_suffix": [".ir", "aparat.com", "digikala.com", "telewebion.com", "varzesh3.com"], "outbound": "direct"}, {"ip_is_private": true, "outbound": "direct"}, {"source_ip_cidr": ["224.0.0.0/3", "ff00::/8"], "ip_cidr": ["224.0.0.0/3", "ff00::/8"], "outbound": "block"}], "final": "✨باقی مانده: 29 روز", "auto_detect_interface": true, "override_android_vpn": true}}
+{
+  "log": {
+    "disabled": true,
+    "level": "fatal",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://94.140.14.14",
+        "strategy": "prefer_ipv4",
+        "detour": "✨"
+      },
+      {
+        "tag": "dns-local",
+        "address": "udp://8.8.8.8",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-resolver",
+        "address": "178.22.122.100",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-locale",
+        "address": "https://dns.403.online/dns-query",
+        "address_resolver": "dns-locale-resolver",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-locale-resolver",
+        "address": "10.202.10.202",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "guixgnu.com"
+        ],
+        "server": "dns-locale"
+      },
+      {
+        "outbound": "auto",
+        "server": "dns-locale"
+      },
+      {
+        "outbound": "any",
+        "server": "dns-local"
+      },
+      {
+        "domain_suffix": ".ir",
+        "server": "dns-local"
+      }
+    ],
+    "final": "dns-remote",
+    "reverse_mapping": true,
+    "disable_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/30",
+      "inet4_route_exclude_address": [
+        "192.168.0.0/16"
+      ],
+      "inet6_route_exclude_address": [
+        "fc00::/7"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": false
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "server": "series-a2-me.varzesh360.co",
+      "server_port": 443,
+      "password": "Bog0ELmMM9DSxDdQ",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "1",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "series-a2-me.samanehha.co",
+      "server_port": 443,
+      "password": "Bog0ELmMM9DSxDdQ",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "2",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "series-a2-mec.varzesh360.co",
+      "server_port": 443,
+      "password": "u17T3BvpYaaiuW2c",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "3",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "series-a2.varzesh360.co",
+      "server_port": 443,
+      "password": "mps3FwmDjLrWaOVg",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "4",
+      "type": "shadowsocks"
+    },
+    {
+      "server": "series-a2.samanehha.co",
+      "server_port": 443,
+      "password": "mps3FwmDjLrWaOVg",
+      "method": "chacha20-ietf-poly1305",
+      "tag": "5",
+      "type": "shadowsocks"
+    },
+    {
+      "type": "selector",
+      "tag": "✨",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          "aparat.com",
+          "digikala.com",
+          "telewebion.com",
+          "varzesh3.com"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "outbound": "block"
+      }
+    ],
+    "final": "✨",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  }
+}
