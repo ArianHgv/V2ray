@@ -1,187 +1,30 @@
-{
-  "log": {
-    "disabled": true,
-    "level": "fatal",
-    "timestamp": true
-  },
-  "dns": {
-    "servers": [
-      {
-        "tag": "dns-remote",
-        "address": "udp://94.140.14.14",
-        "strategy": "prefer_ipv4",
-        "detour": "✨"
-      },
-      {
-        "tag": "dns-local",
-        "address": "udp://8.8.8.8",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-resolver",
-        "address": "178.22.122.100",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-locale",
-        "address": "https://dns.403.online/dns-query",
-        "address_resolver": "dns-locale-resolver",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-locale-resolver",
-        "address": "10.202.10.202",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-block",
-        "address": "rcode://success"
-      }
-    ],
-    "rules": [
-      {
-        "domain": [
-          "guixgnu.com"
-        ],
-        "server": "dns-locale"
-      },
-      {
-        "outbound": "auto",
-        "server": "dns-locale"
-      },
-      {
-        "outbound": "any",
-        "server": "dns-local"
-      },
-      {
-        "domain_suffix": ".ir",
-        "server": "dns-local"
-      }
-    ],
-    "final": "dns-remote",
-    "reverse_mapping": true,
-    "disable_cache": true
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "mtu": 9000,
-      "inet4_address": "172.19.0.1/30",
-      "inet4_route_exclude_address": [
-        "192.168.0.0/16"
-      ],
-      "inet6_route_exclude_address": [
-        "fc00::/7"
-      ],
-      "auto_route": true,
-      "strict_route": true,
-      "stack": "mixed",
-      "sniff": true,
-      "sniff_override_destination": false
-    }
-  ],
-  "outbounds": [
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "server": "series-a2-me.varzesh360.co",
-      "server_port": 443,
-      "password": "Bog0ELmMM9DSxDdQ",
-      "method": "chacha20-ietf-poly1305",
-      "tag": "1",
-      "type": "shadowsocks"
-    },
-    {
-      "server": "series-a2-me.samanehha.co",
-      "server_port": 443,
-      "password": "Bog0ELmMM9DSxDdQ",
-      "method": "chacha20-ietf-poly1305",
-      "tag": "2",
-      "type": "shadowsocks"
-    },
-    {
-      "server": "series-a2-mec.varzesh360.co",
-      "server_port": 443,
-      "password": "u17T3BvpYaaiuW2c",
-      "method": "chacha20-ietf-poly1305",
-      "tag": "3",
-      "type": "shadowsocks"
-    },
-    {
-      "server": "series-a2.varzesh360.co",
-      "server_port": 443,
-      "password": "mps3FwmDjLrWaOVg",
-      "method": "chacha20-ietf-poly1305",
-      "tag": "4",
-      "type": "shadowsocks"
-    },
-    {
-      "server": "series-a2.samanehha.co",
-      "server_port": 443,
-      "password": "mps3FwmDjLrWaOVg",
-      "method": "chacha20-ietf-poly1305",
-      "tag": "5",
-      "type": "shadowsocks"
-    },
-    {
-      "type": "selector",
-      "tag": "✨",
-      "interrupt_exist_connections": true,
-      "outbounds": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ]
-    }
-  ],
-  "route": {
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "dns-out"
-      },
-      {
-        "domain_suffix": [
-          ".ir",
-          "aparat.com",
-          "digikala.com",
-          "telewebion.com",
-          "varzesh3.com"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "source_ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "outbound": "block"
-      }
-    ],
-    "final": "✨",
-    "auto_detect_interface": true,
-    "override_android_vpn": true
-  }
-}
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.146:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9633%40oneclickvpnkeys
+vless://a90e3756-d330-4597-bcc3-ab7905741e52@86.104.72.211:32401?encryption=none&security=reality&sni=dl.google.com&fp=chrome&pbk=8RJPuc5C7fcVe5LSQ0olGnhiqFL8LX-0pnLMrEHD1Bs&sid=7fb7a1507826c540&type=tcp&headerType=none#11%F0%9F%92%A0%40oneclickvpnkeys
+vless://fcbae65d-739f-40fb-847c-67a862ecb746@157.90.124.116:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=multiequipossa.com&fp=chrome&pbk=e1o1RxkM8nA3PpUoHK1mciI1L0J8emMaWq3bwILmIA0&type=tcp&headerType=none#49%F0%9F%8C%8D%40oneclickvpnkeys
+vless://33707040-edcf-4185-94e4-2a071315c602@5.75.196.173:443?encryption=none&security=reality&sni=vpn_proxy_channel_vpn_proxy_channel.hohod.ir&fp=chrome&pbk=GpgfsA-U8Y8M3LRcTfsaBViDtp2VlN5riSLLZ2kxEiQ&sid=7def4dde&type=tcp&headerType=none#26%F0%9F%8C%8D%40oneclickvpnkeys
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.161:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9641%40oneclickvpnkeys
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpjdklJODVUclc2bjBPR3lmcEhWUzF1@45.158.171.141:8080#%F0%9F%92%A041%40oneclickvpnkeys
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.166:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9628%40oneclickvpnkeys
+vless://7e296434-2d17-48d3-928d-19eaa34aecb1@45.15.170.80:28495?encryption=none&security=reality&sni=dl.google.com&fp=chrome&pbk=KXMH8QzaRa66F6GxOR1CanBunO2uHdJvri2zCbar2RQ&sid=0ecc2c1392&type=tcp&headerType=none#%F0%9F%8E%A847%40oneclickvpnkeys
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.151:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9635%40oneclickvpnkeys
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.179:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9629%40oneclickvpnkeys
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.152:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9647%40oneclickvpnkeys
+vless://96a1b724-68d2-4f4d-ab25-38ecd83577bc@199.34.228.164:443?encryption=none&security=tls&sni=Wv2NhB0hVh.SoLiJoNiTo.CoM&fp=chrome&type=ws&host=Wv2NhB0hVh.SoLiJoNiTo.CoM&path=%2F#%F0%9F%A4%9621%40oneclickvpnkeys
+vless://b715d073-d262-475d-a5f1-4d10328da331@77.110.98.221:36994?encryption=none&flow=xtls-rprx-vision&security=reality&sni=google.com&fp=chrome&pbk=B0o9qWjR8-Rwid0pZe-C4LPfxUJCDSWANN0CMbbPxSY&sid=8b5ba7aca4&type=tcp&headerType=none#%E2%9B%B3%EF%B8%8F36%40oneclickvpnkeys
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.163:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9632%40oneclickvpnkeys
+vless://96a1b724-68d2-4f4d-ab25-38ecd83577bc@104.17.147.22:443?encryption=none&security=tls&sni=Wv2NhB0hVh.SoLiJoNiTo.CoM&type=ws&host=Wv2NhB0hVh.SoLiJoNiTo.CoM&path=%2F#%F0%9F%A4%9620%40oneclickvpnkeys
+vless://49ed01ad-3bb4-204f-b0ff-a58f658fd618@5.181.171.10:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=speed.cloudflare.com&fp=chrome&pbk=YNGotlyAx3ELUmi4lxOUjiEDmibqf1pPUTE9o3YYT2Y&type=tcp&headerType=none#%F0%9F%8E%A851%40oneclickvpnkeys
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIjEyXHVEODNEXHVEQ0EwQG9uZWNsaWNrdnBua2V5cyIsDQogICJhZGQiOiAiMTUuMjA0LjI0OC45MiIsDQogICJwb3J0IjogIjMwNTYyIiwNCiAgImlkIjogIjgyNDY2NzE1LTZhNTgtNDA0Ni1hMzYzLWEwZDE4ZTViMmFiNCIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIiIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiLA0KICAiZnAiOiAiIg0KfQ==
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpCb2cwRUxtTU05RFN4RGRR@85.210.120.237:443#%E2%9B%B3%EF%B8%8F31%40oneclickvpnkeys
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlx1RDgzRVx1REQxNjY2QG9uZWNsaWNrdnBua2V5cyIsDQogICJhZGQiOiAiODQuMjQ3LjE0Ny4yNDMiLA0KICAicG9ydCI6ICI1MTU2NiIsDQogICJpZCI6ICJhZTZhZTk3Ny0xN2YyLTQzZmQtYTMzNi0yMGIzYjNhOWU3OTEiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogInRjcCIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIiLA0KICAicGF0aCI6ICIiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIiwNCiAgImFscG4iOiAiIiwNCiAgImZwIjogIiINCn0=
+vless://838f5273-5d2d-4630-a0f5-9cc8e4aef4d6@104.26.12.54:443?encryption=none&security=tls&sni=kg.ilikeu.dpdns.org&fp=chrome&type=ws&host=kg.ilikeu.dpdns.org&path=%2F#4%F0%9F%8C%8D%40oneclickvpnkeys
+vless://7e296434-2d17-48d3-928d-19eaa34aecb1@185.33.24.229:28495?encryption=none&security=reality&sni=dl.google.com&fp=chrome&pbk=KXMH8QzaRa66F6GxOR1CanBunO2uHdJvri2zCbar2RQ&sid=0ecc2c1392&type=tcp&headerType=none#%F0%9F%8E%A849%40oneclickvpnkeys
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlx1RDgzRVx1REQxNjYzQG9uZWNsaWNrdnBua2V5cyIsDQogICJhZGQiOiAiODQuMjQ3LjE0OC4xOTIiLA0KICAicG9ydCI6ICI0NDM5NiIsDQogICJpZCI6ICIzY2EzNWUwYS1lNDMwLTQzZmUtOWMxMi0yZTJlZWE3MGY4NzMiLA0KICAiYWlkIjogIjAiLA0KICAic2N5IjogImF1dG8iLA0KICAibmV0IjogInRjcCIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIiLA0KICAicGF0aCI6ICIiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIiwNCiAgImFscG4iOiAiIiwNCiAgImZwIjogIiINCn0=
+vless://96a1b724-68d2-4f4d-ab25-38ecd83577bc@208.86.168.210:443?encryption=none&security=tls&sni=Wv2NhB0hVh.SoLiJoNiTo.CoM&fp=chrome&type=ws&host=Wv2NhB0hVh.SoLiJoNiTo.CoM&path=%2F#28%F0%9F%8C%8D%40oneclickvpnkeys
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.141:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9634%40oneclickvpnkeys
+vless://8b90d0f5-8120-4aca-981d-d122ea272dfc@104.19.224.112:80?encryption=none&security=none&type=ws&host=nl.xyxy.dpdns.org&path=%2F#%F0%9F%8E%A884%40oneclickvpnkeys
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNToxUld3WGh3ZkFCNWdBRW96VTRHMlBn@45.158.171.146:8080#%F0%9F%8E%A815%40oneclickvpnkeys
+vless://df0680ca-e43c-498d-ed86-8e196eedd012@95.164.45.94:8880?encryption=none&security=none&type=grpc#32%F0%9F%8C%8D%40oneclickvpnkeys
+vless://df0680ca-e43c-498d-ed86-8e196eedd012@95.164.45.85:8880?encryption=none&security=none&type=grpc#%F0%9F%8C%8D98%40oneclickvpnkeys
+vless://838f5273-5d2d-4630-a0f5-9cc8e4aef4d6@104.26.13.54:443?encryption=none&security=tls&sni=kg.ilikeu.dpdns.org&fp=chrome&type=ws&host=kg.ilikeu.dpdns.org&path=%2F#43%F0%9F%8C%8D%40oneclickvpnkeys
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.143:8880?encryption=none&security=none&type=grpc#%F0%9F%A4%9631%40oneclickvpnkeys
