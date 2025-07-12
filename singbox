@@ -56,12 +56,12 @@
         "Telegram = @SOSkeyNET (VLESS 4)",
         "Telegram = @SOSkeyNET (SS 1)",
         "Telegram = @SOSkeyNET (VLESS 5)",
-        "Telegram = @SOSkeyNET (VLESS 6)",
+        "Telegram = @SOSkeyNET (VLESS 6 - ws fallback)",
         "Telegram = @SOSkeyNET (VLESS 7)",
         "Telegram = @SOSkeyNET (VLESS 8)",
         "Telegram = @SOSkeyNET (VLESS 9)",
         "Telegram = @SOSkeyNET (VLESS 10)",
-        "Telegram = @SOSkeyNET (VLESS 11)",
+        "Telegram = @SOSkeyNET (VLESS 11 - ws fallback)",
         "Telegram = @SOSkeyNET (VLESS 12)",
         "Telegram = @SOSkeyNET (SS 2)",
         "Telegram = @SOSkeyNET (VLESS 13)",
@@ -69,7 +69,10 @@
         "Telegram = @SOSkeyNET (VLESS 15)",
         "Telegram = @SOSkeyNET (VLESS 16)",
         "Telegram = @SOSkeyNET (VLESS 17)",
+        "Telegram = @SOSkeyNET (VLESS Reality 1)",
+        "Telegram = @SOSkeyNET (VLESS Reality 2)",
         "Telegram = @SOSkeyNET (VLESS 18)",
+        "Telegram = @SOSkeyNET (VLESS 19)",
         "Telegram = @SOSkeyNET (SS 3)",
         "Telegram = @SOSkeyNET (SS 4)"
       ],
@@ -198,7 +201,7 @@
     },
     {
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 6)",
+      "tag": "Telegram = @SOSkeyNET (VLESS 6 - ws fallback)",
       "server": "www.speedtest.net",
       "server_port": 443,
       "uuid": "4e0a435a-65d6-4e4e-a4ed-dfa8bdd732f5",
@@ -212,12 +215,13 @@
         "alpn": ["h2"]
       },
       "transport": {
-        "type": "xhttp",
+        "type": "ws",
         "headers": {
           "Host": ["lama.tas-bazi.com"]
         },
-        "path": "/tas",
-        "xhttp_mode": "stream-one"
+        "path": "/tas"
+        // Note: 'mode=stream-one' from xhttp is not directly transferable to ws.
+        // This might affect performance or functionality if the server strictly relies on xhttp's stream-one mode.
       }
     },
     {
@@ -311,7 +315,7 @@
     },
     {
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 11)",
+      "tag": "Telegram = @SOSkeyNET (VLESS 11 - ws fallback)",
       "server": "www.speedtest.net",
       "server_port": 443,
       "uuid": "4e0a435a-65d6-4e4e-a4ed-dfa8bdd732f5",
@@ -325,12 +329,13 @@
         "alpn": ["h2"]
       },
       "transport": {
-        "type": "xhttp",
+        "type": "ws",
         "headers": {
           "Host": ["ali.tas-bazi.com"]
         },
-        "path": "/tas",
-        "xhttp_mode": "stream-one"
+        "path": "/tas"
+        // Note: 'mode=stream-one' from xhttp is not directly transferable to ws.
+        // This might affect performance or functionality if the server strictly relies on xhttp's stream-one mode.
       }
     },
     {
@@ -450,39 +455,6 @@
     },
     {
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 18)",
-      "server": "TELEGRAM-NUFiLTER",
-      "server_port": 8880,
-      "uuid": "TELEGRAM-NUFiLTER",
-      "tls": {
-        "enabled": false
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "headers": {
-          "Host": ["kk50.4qwertyuiopasdfghjklzxcvbnmmnbvcxzlkjhgfdsapoiuytrewq1234567890.pro."]
-        },
-        "path": "/telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER"
-      }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "Telegram = @SOSkeyNET (SS 3)",
-      "server": "series-a2.samanehha.co",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "mps3FwMDjLwRWoVZTmK72I"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "Telegram = @SOSkeyNET (SS 4)",
-      "server": "45.87.175.192",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "1RWwXhwdFAB5gAEozU4G2Pg"
-    },
-    {
-      "type": "vless",
       "tag": "Telegram = @SOSkeyNET (VLESS Reality 1)",
       "server": "45.35.126.48",
       "server_port": 8443,
@@ -527,6 +499,23 @@
     },
     {
       "type": "vless",
+      "tag": "Telegram = @SOSkeyNET (VLESS 18)",
+      "server": "www.speedtest.net",
+      "server_port": 8880,
+      "uuid": "TELEGRAM-NUFiLTER",
+      "tls": {
+        "enabled": false
+      },
+      "transport": {
+        "type": "httpupgrade",
+        "headers": {
+          "Host": ["kk50.4qwertyuiopasdfghjklzxcvbnmmnbvcxzlkjhgfdsapoiuytrewq1234567890.pro."]
+        },
+        "path": "/telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER"
+      }
+    },
+    {
+      "type": "vless",
       "tag": "Telegram = @SOSkeyNET (VLESS 19)",
       "server": "91.99.170.191",
       "server_port": 443,
@@ -551,6 +540,22 @@
           }
         }
       }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "Telegram = @SOSkeyNET (SS 3)",
+      "server": "series-a2.samanehha.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "mps3FwMDjLwRWhTgo0tM72I"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "Telegram = @SOSkeyNET (SS 4)",
+      "server": "45.87.175.192",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "1RWwXhwdFAB5gAEozU4GMlfg"
     }
   ],
   "route": {
