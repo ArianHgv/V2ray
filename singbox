@@ -1,582 +1,3903 @@
+//profile-title: base64:QXJIZ3YgfCBNeVByb2ZpbGU=
+//profile-update-interval: 1
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+//support-url: https://t.me/yebekhe
+//profile-web-page-url: github.com/itsyebekhe/PSG
+
 {
-  "log": {
-    "level": "warn"
-  },
   "dns": {
-    "servers": [
-      {
-        "tag": "dns-remote",
-        "address": "1.1.1.2",
-        "detour": "proxy"
-      },
-      {
-        "tag": "dns-local",
-        "address": "local",
-        "detour": "direct"
-      }
-    ],
+    "final": "local-dns",
     "rules": [
       {
-        "outbound": "any",
-        "server": "dns-local"
+        "action": "route",
+        "clash_mode": "Global",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "clash_mode": "Direct",
+        "server": "direct-dns"
+      },
+      {
+        "action": "route",
+        "rule_set": [
+          "geosite-ir"
+        ],
+        "server": "direct-dns"
       }
     ],
-    "final": "dns-remote",
+    "servers": [
+      {
+        "address": "tcp://1.1.1.1",
+        "address_resolver": "local-dns",
+        "detour": "proxy",
+        "tag": "proxy-dns"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "local-dns"
+      },
+      {
+        "address": "tcp://8.8.8.8",
+        "detour": "direct",
+        "tag": "direct-dns"
+      }
+    ],
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "sing-tun",
       "address": [
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
       "auto_route": true,
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "fc00::/7"
-      ],
-      "sniff": true,
-      "domain_strategy": "prefer_ipv4"
+      "endpoint_independent_nat": false,
+      "mtu": 9000,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      },
+      "stack": "system",
+      "strict_route": false,
+      "type": "tun"
+    },
+    {
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "type": "mixed",
+      "users": []
     }
   ],
   "outbounds": [
     {
-      "type": "selector",
-      "tag": "proxy",
       "outbounds": [
+        "auto",
         "direct",
-        "block",
-        "dns-out",
-        "Telegram = @SOSkeyNET (VLESS 1)",
-        "Telegram = @SOSkeyNET (VLESS 2)",
-        "Telegram = @SOSkeyNET (VLESS 3)",
-        "Telegram = @SOSkeyNET (VLESS 4)",
-        "Telegram = @SOSkeyNET (SS 1)",
-        "Telegram = @SOSkeyNET (VLESS 5)",
-        "Telegram = @SOSkeyNET (VLESS 6 - ws fallback)",
-        "Telegram = @SOSkeyNET (VLESS 7)",
-        "Telegram = @SOSkeyNET (VLESS 8)",
-        "Telegram = @SOSkeyNET (VLESS 9)",
-        "Telegram = @SOSkeyNET (VLESS 10)",
-        "Telegram = @SOSkeyNET (VLESS 11 - ws fallback)",
-        "Telegram = @SOSkeyNET (VLESS 12)",
-        "Telegram = @SOSkeyNET (SS 2)",
-        "Telegram = @SOSkeyNET (VLESS 13)",
-        "Telegram = @SOSkeyNET (VLESS 14)",
-        "Telegram = @SOSkeyNET (VLESS 15)",
-        "Telegram = @SOSkeyNET (VLESS 16)",
-        "Telegram = @SOSkeyNET (VLESS 17)",
-        "Telegram = @SOSkeyNET (VLESS Reality 1)",
-        "Telegram = @SOSkeyNET (VLESS Reality 2)",
-        "Telegram = @SOSkeyNET (VLESS 18)",
-        "Telegram = @SOSkeyNET (VLESS 19)",
-        "Telegram = @SOSkeyNET (SS 3)",
-        "Telegram = @SOSkeyNET (SS 4)"
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "â¡ï¸Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "Unknown Tag",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET"
       ],
-      "interrupt_exist_connections": true
+      "tag": "proxy",
+      "type": "selector"
     },
     {
-      "type": "direct",
-      "tag": "direct"
+      "interval": "10m",
+      "outbounds": [
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "â¡ï¸Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "Unknown Tag",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET",
+        "⚡Telegram = @SOSkeyNET"
+      ],
+      "tag": "auto",
+      "tolerance": 50,
+      "type": "urltest",
+      "url": "http://www.gstatic.com/generate_204"
     },
     {
-      "type": "block",
-      "tag": "block"
+      "tag": "direct",
+      "type": "direct"
     },
     {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 1)",
-      "server": "141.101.121.55",
-      "server_port": 8080,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "server": "91.99.199.137",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
       "tls": {
-        "enabled": false
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["1750293123492.china.baidu.bilibili.china.aeko.cn"]
-        },
-        "path": "/?ed=2048"
+        "enabled": true,
+        "server_name": "91.99.199.137",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 2)",
+      "server": "91.99.199.137",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.199.137",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.199.137",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.199.137",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.130.239",
+      "server_port": 443,
+      "uuid": "7a66b8ef-9713-4b69-b839-6bb45070af35",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.130.239",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.195.73",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.195.73",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.130.239",
+      "server_port": 443,
+      "uuid": "7a66b8ef-9713-4b69-b839-6bb45070af35",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.130.239",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.205.121",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.205.121",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.203.65",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.203.65",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.198.174",
+      "server_port": 443,
+      "uuid": "7a66b8ef-9713-4b69-b839-6bb45070af35",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.198.174",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.160.151",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.160.151",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.195.73",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.195.73",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.195.73",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.195.73",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.203.65",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.203.65",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.198.191",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.198.191",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.203.65",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.203.65",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.160.151",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.160.151",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.203.65",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.203.65",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.192.155",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.192.155",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.139.18",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.139.18",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.160.210",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.160.210",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.203.69",
+      "server_port": 51615,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.160.145",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.160.145",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.207.230",
+      "server_port": 51615,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.145.219",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.145.219",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.205.10",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.205.10",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.190.38",
+      "server_port": 51615,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.14.202",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.14.202",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.14.202",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.14.202",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.160.90",
+      "server_port": 443,
+      "uuid": "7a66b8ef-9713-4b69-b839-6bb45070af35",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.160.90",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 2053,
+      "uuid": "704198c4-37b9-473d-a5de-0333276f2f6c",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "maHsA2.cFFoRM.sIte",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/?ed=2560",
+        "headers": {
+          "Host": "maHsA2.cFFoRM.sIte"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.171.12",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.171.12",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.192.189",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.192.189",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
       "server": "www.speedtest.net",
       "server_port": 80,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-      "tls": {
-        "enabled": false
-      },
+      "flow": "",
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
+        "path": "/?ed=2560",
         "headers": {
-          "Host": ["redfree8.pooriashop.ir"]
-        },
-        "path": "/join--TELEGRAM-MARAMBASHI-MARAMBASHI---join?ed=2560"
+          "Host": "www.speedtest.net"
+        }
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 3)",
-      "server": "www.speedtest.net",
-      "server_port": 8443,
-      "uuid": "591a0afd-924a-4a71-8063-10aac246bb65",
+      "server": "91.99.205.10",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "uSer2-P2L.PAGes.Dev",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "alpn": ["http/1.1"]
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["user2-p2l.pages.dev"]
-        },
-        "path": "/4Nc6Idp9GW3U1xOc?ed=2560"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 4)",
-      "server": "172.67.69.129",
-      "server_port": 2083,
-      "uuid": "8f320d6a-9953-4065-b61c-d62f89a6767f",
-      "tls": {
-        "enabled": true,
-        "server_name": "e.exedu.ip-ddns.com",
+        "server_name": "91.99.205.10",
+        "insecure": true,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["e.exedu.ip-ddns.com"]
-        },
-        "path": "/Telegram@V2ray_Alpha/?ed=2048"
       }
     },
     {
-      "type": "shadowsocks",
-      "tag": "Telegram = @SOSkeyNET (SS 1)",
-      "server": "45.87.175.10",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhacQV8ka3Pa3A"
-    },
-    {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 5)",
-      "server": "104.21.36.57",
+      "server": "91.99.162.239",
       "server_port": 443,
-      "uuid": "7f1c42b8-069d-4fbe-8cdc-0fc1a131c8a8",
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "avtice.fullmargintraders.com",
+        "server_name": "91.99.162.239",
+        "insecure": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["avtice.fullmargintraders.com"]
-        },
-        "path": "/wsv/7f1c42b8-069d-4fbe-8cdc-0fc1a131c8a8"
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 6 - ws fallback)",
-      "server": "www.speedtest.net",
+      "server": "91.99.198.174",
       "server_port": 443,
-      "uuid": "4e0a435a-65d6-4e4e-a4ed-dfa8bdd732f5",
+      "uuid": "7a66b8ef-9713-4b69-b839-6bb45070af35",
+      "flow": "",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "lama.tas-bazi.com",
+        "server_name": "91.99.198.174",
+        "insecure": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "alpn": ["h2"]
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["lama.tas-bazi.com"]
-        },
-        "path": "/tas"
-        // Note: 'mode=stream-one' from xhttp is not directly transferable to ws.
-        // This might affect performance or functionality if the server strictly relies on xhttp's stream-one mode.
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 7)",
-      "server": "104.21.36.57",
-      "server_port": 443,
-      "uuid": "4d89daf8-83c1-497d-af73-0d0033daadd8",
-      "tls": {
-        "enabled": true,
-        "server_name": "psto.fullmargintraders.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["psto.fullmargintraders.com"]
-        },
-        "path": "/wsv/4d89daf8-83c1-497d-af73-0d0033daadd8"
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 8)",
+      "server": "91.99.159.125",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.159.125",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.159.125",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.159.125",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
       "server": "www.speedtest.net",
       "server_port": 2096,
       "uuid": "24a4aa9b-b341-4717-9d4a-00d74c2b84e0",
+      "flow": "",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "server_name": "62X1tXx6M0.9pEsC.cOm",
+        "insecure": true,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        },
-        "alpn": ["h2", "http/1.1"]
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["62X1tXx6M0.9pEsC.cOm"]
-        },
-        "path": "/"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 9)",
-      "server": "104.21.36.57",
-      "server_port": 443,
-      "uuid": "6f6e8f09-c1b3-48fd-ab00-18f921d875ef",
-      "tls": {
-        "enabled": true,
-        "server_name": "profit.fullmargintraders.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
         }
       },
       "transport": {
         "type": "ws",
+        "path": "/",
         "headers": {
-          "Host": ["profit.fullmargintraders.com"]
-        },
-        "path": "/wsv/6f6e8f09-c1b3-48fd-ab00-18f921d875ef"
+          "Host": "62X1tXx6M0.9pEsC.cOm"
+        }
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 10)",
-      "server": "104.21.36.57",
+      "server": "91.99.207.47",
       "server_port": 443,
-      "uuid": "0cc731b9-0375-4590-aeaa-7e2611a149fe",
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "black.fullmargintraders.com",
+        "server_name": "91.99.207.47",
+        "insecure": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["black.fullmargintraders.com"]
-        },
-        "path": "/wsv/0cc731b9-0375-4590-aeaa-7e2611a149fe"
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 11 - ws fallback)",
+      "server": "91.99.145.219",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.145.219",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.207.230",
+      "server_port": 51615,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.207.21",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.207.21",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.203.70",
+      "server_port": 51615,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.207.21",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.207.21",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 8880,
+      "uuid": "5e442247-f33d-4104-8644-ba77bf6e5a5b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/mmad?ed=2560",
+        "headers": {
+          "Host": "104.17.147.22"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.207.21",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.207.21",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.122.102",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.122.102",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.198.191",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.198.191",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.160.145",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.160.145",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.160.217",
+      "server_port": 443,
+      "uuid": "7a66b8ef-9713-4b69-b839-6bb45070af35",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.160.217",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.162.239",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.162.239",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.182.117",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.182.117",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.182.117",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.182.117",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
       "server": "www.speedtest.net",
       "server_port": 443,
       "uuid": "4e0a435a-65d6-4e4e-a4ed-dfa8bdd732f5",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "lama.tas-bazi.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.202.155",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.202.155",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.203.69",
+      "server_port": 51615,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.54.106",
+      "server_port": 443,
+      "uuid": "15398933-070d-4ea2-9697-5fcd79793c97",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.54.106",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.151.199",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.151.199",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.170.191",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.170.191",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.198.191",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.198.191",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.202.155",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.202.155",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.231.218",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.231.218",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.231.218",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.231.218",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.169.206",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.169.206",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.190.38",
+      "server_port": 51615,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.169.206",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.169.206",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.202.155",
+      "server_port": 443,
+      "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.202.155",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.207.21",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.207.21",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 443,
+      "uuid": "4e0a435a-65d6-4e4e-a4ed-dfa8bdd732f5",
+      "flow": "",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "server_name": "ali.tas-bazi.com",
+        "insecure": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "alpn": ["h2"]
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.205.121",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.205.121",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.169.206",
+      "server_port": 443,
+      "uuid": "7b6eca4c-44ae-40c6-973a-4e3b29d30803",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.169.206",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.170.191",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c03-a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.170.191",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.205.121",
+      "server_port": 443,
+      "uuid": "153ee04c-dcc1-4ef8-a146-8fb31cec1f48",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.205.121",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 80,
+      "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "104.17.147.22"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "7c9e3c1d-a360-4429-9189-e45a98de7fde",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@Config_Rayegan/?ed=2560",
+        "headers": {
+          "Host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "172.67.6.114",
+      "server_port": 80,
+      "uuid": "941d092e-8313-452a-ba21-c9995dcba79d",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "havvas.shohreh.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.105.92",
+      "server_port": 80,
+      "uuid": "92f481b6-ad92-43e4-a683-2bb0aeaa9846",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "dw.alibichareh.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
       },
       "transport": {
         "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/?ed=2560",
         "headers": {
-          "Host": ["ali.tas-bazi.com"]
-        },
-        "path": "/tas"
-        // Note: 'mode=stream-one' from xhttp is not directly transferable to ws.
-        // This might affect performance or functionality if the server strictly relies on xhttp's stream-one mode.
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 12)",
-      "server": "47.251.95.178",
-      "server_port": 443,
-      "uuid": "ea286109-d20f-415e-849e-4af20ab04b65",
+      "server": "104.17.147.22",
+      "server_port": 80,
+      "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/?ed=2560",
+        "headers": {
+          "Host": "104.17.147.22"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 8443,
+      "uuid": "591a0afd-924a-4a71-8063-10aac246bb65",
+      "flow": "",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "147135001195.sec22org.com"
+        "server_name": "uSer2-P2L.PAGes.Dev",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
       },
       "transport": {
-        "type": "tcp"
+        "type": "ws",
+        "path": "/4Nc6Idp9GW3U1xOc?ed=2560",
+        "headers": {
+          "Host": "uSer2-P2L.PAGes.Dev"
+        }
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.0.113",
+      "server_port": 80,
+      "uuid": "bbd2882a-c158-4ae6-b53a-5ae6be8dbcb0",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "barayeiran.nastaranh.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.142.120.134",
+      "server_port": 80,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@ShadowProxy66/?ed=2560",
+        "headers": {
+          "Host": "45.142.120.134"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.53.11",
+      "server_port": 8443,
+      "uuid": "7c9e3c1d-a360-4429-9189-e45a98de7fde",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "my.ski1plag.ir",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha",
+        "headers": {
+          "Host": "my.ski1plag.ir"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/L4h47GkKWsH8we4z/MzUuMTgwLjIyOS4x?ed=2560",
+        "headers": {
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/QdRVz1eSwuT9ClmZ/MzQuODguNjMuMTYw?ed=2560",
+        "headers": {
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.76.167",
+      "server_port": 80,
+      "uuid": "8c17092b-4d89-44e3-9dcb-a00c2bf28827",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "aymng.bahareh.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha",
+        "headers": {
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.53.11",
+      "server_port": 80,
+      "uuid": "7c9e3c1d-a360-4429-9189-e45a98de7fde",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/upload/?TELEGRAM_JOKERRVPN",
+        "headers": {
+          "Host": "104.16.53.11"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 8443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "UUHuhyYgESDfgh.UyHjhgvgFCjgujhBuILbVFDXdxM.xYZ",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpa=?ed=2560",
+        "headers": {
+          "Host": "UUHuhyYgESDfgh.UyHjhgvgFCjgujhBuILbVFDXdxM.xYZ"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TiTAntAbLoMaNAhamraH.Ir",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/CY6EnyeHmgNASXJI/MTU5LjY5LjE0LjEzOA?ed",
+        "headers": {
+          "Host": "TiTAntAbLoMaNAhamraH.Ir"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "7c9e3c1d-a360-4429-9189-e45a98de7fde",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/?ed=2560",
+        "headers": {
+          "Host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@v2rayngzendegimamad/?ed=2560",
+        "headers": {
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.131.208.130",
+      "server_port": 80,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/?ed=2560",
+        "headers": {
+          "Host": "45.131.208.130"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TiTAntAbLoMaNAhamraH.Ir.",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/CY6EnyeHmgNASXJI/MTU5LjY5LjE0LjEzOA?ed=8080",
+        "headers": {
+          "Host": "TiTAntAbLoMaNAhamraH.Ir."
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Kytglts3cGhwlsZV/MjEzLjE3MC4xNTcuMQ",
+        "headers": {
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "3058e698-61fd-4d12-95bc-f1fe4c071713",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "hOZori.iR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha",
+        "headers": {
+          "Host": "hOZori.iR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 80,
+      "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@ShadowProxy66/?ed=2560",
+        "headers": {
+          "Host": "104.17.147.22"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 2053,
+      "uuid": "704198c4-37b9-473d-a5de-0333276f2f6c",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "maHsA2.cFFoRM.sIte",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram-V2ray_Alpha",
+        "headers": {
+          "Host": "maHsA2.cFFoRM.sIte"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.181.110",
+      "server_port": 80,
+      "uuid": "1f431db3-1918-4e7b-a855-c93485e11694",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "pari.parinazz.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@Filter_breaker/?ed=2560",
+        "headers": {
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@Filter_breaker/?ed=2560",
+        "headers": {
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 8443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "UUHuhyYgESDfgh.UyHjhgvgFCjgujhBuILbVFDXdxM.xYZ",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha=?ed=2560",
+        "headers": {
+          "Host": "UUHuhyYgESDfgh.UyHjhgvgFCjgujhBuILbVFDXdxM.xYZ"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "141.101.121.55",
+      "server_port": 8080,
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "141.101.121.55"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "172.67.177.223",
+      "server_port": 80,
+      "uuid": "9d6315f7-f272-4806-97c8-5fdaafad391e",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "lot.sosant.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.131.209.44",
+      "server_port": 80,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM:@MARAMBASHI_MARAMBASHI_MARAMBASHI/?ed=2560",
+        "headers": {
+          "Host": "45.131.209.44"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/join--TELEGRAM-MARAMBASHI-MARAMBASHI---join?ed=2560",
+        "headers": {
+          "Host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM@MARAMBASHI_MARAMBASHI_MARAMBASHI/?ed=2560",
+        "headers": {
+          "Host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 2053,
+      "uuid": "704198c4-37b9-473d-a5de-0333276f2f6c",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "maHsA2.cFFoRM.sIte",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/dG8nlHvMhylFIEQ3/c2hpcmVuLnlhZW1pa28uZ2dmZi5uZXQ=",
+        "headers": {
+          "Host": "maHsA2.cFFoRM.sIte"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 8443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "UUHuhyYgESDfgh.UyHjhgvgFCjgujhBuILbVFDXdxM.xYZ",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@v2rayngzendegimamad=?ed=2560",
+        "headers": {
+          "Host": "UUHuhyYgESDfgh.UyHjhgvgFCjgujhBuILbVFDXdxM.xYZ"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram-V2ray_Alpha/?ed=2560",
+        "headers": {
+          "Host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 443,
+      "uuid": "3058e698-61fd-4d12-95bc-f1fe4c071713",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "hozori.ir",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/RklUHeautH5uvnSB/NTQuMTY5LjIyOS4xODg?ed",
+        "headers": {
+          "Host": "hozori.ir"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "titantablomanahamrah.ir",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/jpePYzwY4AyV9UQ8/MTQwLjIzOC4yMTIuOTU?ed",
+        "headers": {
+          "Host": "titantablomanahamrah.ir"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.181.110",
+      "server_port": 80,
+      "uuid": "1f431db3-1918-4e7b-a855-c93485e11694",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2580",
+        "headers": {
+          "Host": "104.16.181.110"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TITanTabLOmaNAHaMRaH.IR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/InTnUH0wTWnY4AaX/MTU4LjE4MC4xMi4xMTc",
+        "headers": {
+          "Host": "TITanTabLOmaNAHaMRaH.IR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 443,
+      "uuid": "3058e698-61fd-4d12-95bc-f1fe4c071713",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "hOZori.iR",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/rkluheauth5uvnsb/ntqumty5ljiyos4xodg=?ed=2560",
+        "headers": {
+          "Host": "hOZori.iR"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.0.113",
+      "server_port": 80,
+      "uuid": "bbd2882a-c158-4ae6-b53a-5ae6be8dbcb0",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "104.16.0.113"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.241.234",
+      "server_port": 80,
+      "uuid": "92f481b6-ad92-43e4-a683-2bb0aeaa9846",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "dw.alibichareh.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 80,
+      "uuid": "7c9e3c1d-a360-4429-9189-e45a98de7fde",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/?ed=2560",
+        "headers": {
+          "Host": "104.17.147.22"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 443,
+      "uuid": "4d91916f-a7fd-419b-8b90-640bb8d1b9f4",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "TiTAntAbLoMaNAhamraH.Ir",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/E4FqomT5e0mKm2nh/MTU5LjY5LjE0LjEzOA",
+        "headers": {
+          "Host": "TiTAntAbLoMaNAhamraH.Ir"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.17.147.22",
+      "server_port": 8443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "UUHuhyYgESDfgh.UyHjhgvgFCjgujhBuILbVFDXdxM.xYZ",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@v2rayngzendegimamad=?ed=2560",
+        "headers": {
+          "Host": "UUHuhyYgESDfgh.UyHjhgvgFCjgujhBuILbVFDXdxM.xYZ"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.99.37",
+      "server_port": 80,
+      "uuid": "bbd2882a-c158-4ae6-b53a-5ae6be8dbcb0",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "barayeiran.nastaranh.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.101.143",
+      "server_port": 80,
+      "uuid": "db9d419e-3094-4942-9313-d39afd3dd163",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "spx.lindak.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.103.250",
+      "server_port": 80,
+      "uuid": "1f431db3-1918-4e7b-a855-c93485e11694",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "pari.parinazz.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.103.97",
+      "server_port": 80,
+      "uuid": "8c17092b-4d89-44e3-9dcb-a00c2bf28827",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-YamYamProxy_YamYamProxy_YamYamProxy?ed=512",
+        "headers": {
+          "Host": "104.16.103.97"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.104.151",
+      "server_port": 80,
+      "uuid": "1f431db3-1918-4e7b-a855-c93485e11694",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "104.16.104.151"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.104.151",
+      "server_port": 80,
+      "uuid": "1f431db3-1918-4e7b-a855-c93485e11694",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "104.16.104.151"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.16.110.49",
+      "server_port": 80,
+      "uuid": "941d092e-8313-452a-ba21-c9995dcba79d",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2570",
+        "headers": {
+          "Host": "104.16.110.49"
+        }
+      }
+    },
+    {
+      "tag": "â¡ï¸Telegram = @SOSkeyNET",
+      "type": "vmess",
+      "server": "78.39.9.134",
+      "server_port": 8090,
+      "uuid": "891e1d1c-5fbc-40cb-9256-58b016b6b600",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "172.67.204.84",
+      "server_port": 443,
+      "uuid": "81191cda-0982-4cbd-8d60-2ef076e08d17",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "delicate-shape-a1b0.visot77057.workers.dev",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "delicate-shape-a1b0.visot77057.workers.dev"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "172.66.133.134",
+      "server_port": 80,
+      "uuid": "5459f68e-d914-4b31-93a3-ecdf638b7a5b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "abcd.taraneh.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "172.67.69.129",
+      "server_port": 2083,
+      "uuid": "8f320d6a-9953-4065-b61c-d62f89a6767f",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "e.exedu.ip-ddns.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/?ed=2048",
+        "headers": {
+          "Host": "e.exedu.ip-ddns.com"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.19.174.68",
+      "server_port": 443,
+      "uuid": "7a80a8d9-92f9-4f0a-8352-9005a8215ab8",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "rayan-08.leila.dpdns.org",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@Rayan_Config",
+        "headers": {
+          "Host": "rayan-08.leila.dpdns.org"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "154.92.9.46",
+      "server_port": 443,
+      "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "simorgh.hpcode.ir",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560",
+        "headers": {
+          "Host": "simorgh.hpcode.ir"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "ver2.tcod008.info",
+      "server_port": 59761,
+      "uuid": "ae9539b5-70dd-41b5-9666-11a29559a840",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "147135004002.sec20org.com",
+      "server_port": 443,
+      "uuid": "54694a33-a8dc-47dd-bc38-acd3971e0055",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "147135004002.sec20org.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.21.36.57",
+      "server_port": 443,
+      "uuid": "6f6e8f09-c1b3-48fd-ab00-18f921d875ef",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "profit.fullmargintraders.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wsv/6f6e8f09-c1b3-48fd-ab00-18f921d875ef",
+        "headers": {
+          "Host": "profit.fullmargintraders.com"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.21.36.57",
+      "server_port": 443,
+      "uuid": "4c835bff-4f4d-4608-bb21-120099089688",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "orange.fullmargintraders.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wsv/4c835bff-4f4d-4608-bb21-120099089688",
+        "headers": {
+          "Host": "orange.fullmargintraders.com"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "154.92.9.46",
+      "server_port": 443,
+      "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "simorgh.hpcode.ir",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560",
+        "headers": {
+          "Host": "simorgh.hpcode.ir"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.21.36.57",
+      "server_port": 443,
+      "uuid": "6c11247b-6078-461a-93d5-22e4df284e6d",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "mirror.fullmargintraders.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wsv/6c11247b-6078-461a-93d5-22e4df284e6d",
+        "headers": {
+          "Host": "mirror.fullmargintraders.com"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.21.36.57",
+      "server_port": 443,
+      "uuid": "0cc731b9-0375-4590-aeaa-7e2611a149fe",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "black.fullmargintraders.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wsv/0cc731b9-0375-4590-aeaa-7e2611a149fe",
+        "headers": {
+          "Host": "black.fullmargintraders.com"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.21.36.57",
+      "server_port": 443,
+      "uuid": "7f1c42b8-069d-4fbe-8cdc-0fc1a131c8a8",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "avtice.fullmargintraders.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wsv/7f1c42b8-069d-4fbe-8cdc-0fc1a131c8a8",
+        "headers": {
+          "Host": "avtice.fullmargintraders.com"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "104.21.36.57",
+      "server_port": 443,
+      "uuid": "4d89daf8-83c1-497d-af73-0d0033daadd8",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "psto.fullmargintraders.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wsv/4d89daf8-83c1-497d-af73-0d0033daadd8",
+        "headers": {
+          "Host": "psto.fullmargintraders.com"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "62.60.179.100",
+      "server_port": 54080,
+      "uuid": "079291d7-2d5a-4dcc-b2a9-514cda7eb9f9",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "185.155.72.101",
+      "server_port": 59761,
+      "uuid": "ae9539b5-70dd-41b5-9666-11a29559a840",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "109.122.249.156",
+      "server_port": 57107,
+      "uuid": "600eae54-5014-40a2-99f3-215ff340c26d",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "test.yoyohihi.com",
+      "server_port": 57107,
+      "uuid": "600eae54-5014-40a2-99f3-215ff340c26d",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.12.30.101",
+      "server_port": 80,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@ShadowProxy66/?ed=2560",
+        "headers": {
+          "Host": "45.12.30.101"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.131.209.44",
+      "server_port": 80,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@V2ray_Alpha/?ed=2560",
+        "headers": {
+          "Host": "45.131.209.44"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.133.36.230",
+      "server_port": 443,
+      "uuid": "c5477343-3db8-4486-c60f-3f7d59eda81c",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.latimes.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "aWkDnGz6ncSTu_pOZggU23ZlBP-nrq65iCo2rSbujG8",
+          "short_id": ""
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "shadowsocks",
-      "tag": "Telegram = @SOSkeyNET (SS 2)",
+      "server": "45.139.24.24",
+      "server_port": 57456,
+      "method": "chacha20-ietf-poly1305",
+      "password": "360e21d21977dc11"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
       "server": "45.144.54.33",
       "server_port": 34803,
       "method": "chacha20-ietf-poly1305",
       "password": "cf9pTE2sVT9UUvalTmK72I"
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 13)",
-      "server": "104.21.36.57",
-      "server_port": 443,
-      "uuid": "6c11247b-6078-461a-93d5-22e4df284e6d",
-      "tls": {
-        "enabled": true,
-        "server_name": "mirror.fullmargintraders.com"
-      },
+      "server": "45.153.7.63",
+      "server_port": 8880,
+      "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+      "flow": "",
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
+        "path": "/Telegram",
         "headers": {
-          "Host": ["mirror.fullmargintraders.com"]
-        },
-        "path": "/wsv/6c11247b-6078-461a-93d5-22e4df284e6d"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 14)",
-      "server": "45.8.211.71",
-      "server_port": 443,
-      "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
-      "tls": {
-        "enabled": true,
-        "server_name": "pqh24v3.hiddendom.shop",
-        "alpn": ["h2"]
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 15)",
-      "server": "104.26.2.186",
-      "server_port": 443,
-      "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
-      "tls": {
-        "enabled": true,
-        "server_name": "pqh24v3.hiddendom.shop",
-        "alpn": ["h2"]
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 16)",
-      "server": "104.21.36.57",
-      "server_port": 443,
-      "uuid": "4c835bff-4f4d-4608-bb21-120099089688",
-      "tls": {
-        "enabled": true,
-        "server_name": "orange.fullmargintraders.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
+          "Host": "jp.laoyoutiao.link"
         }
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": ["orange.fullmargintraders.com"]
-        },
-        "path": "/wsv/4c835bff-4f4d-4608-bb21-120099089688"
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
+      "server": "45.158.171.136",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "1RWwXhwfAB5gAEozU4G2Pg"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
+      "server": "45.158.171.136",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "cvII85TrW6n0OGyfpHVS1u"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 17)",
-      "server": "154.92.9.46",
-      "server_port": 443,
-      "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
-      "tls": {
-        "enabled": true,
-        "server_name": "simorgh.hpcode.ir",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "alpn": ["h2", "http/1.1"]
-      },
+      "server": "45.159.148.180",
+      "server_port": 2053,
+      "uuid": "aa4e1b2b-2ed5-41af-b306-ed43a9ff5dc3",
+      "flow": "",
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
+        "path": "/path",
         "headers": {
-          "Host": ["simorgh.hpcode.ir"]
-        },
-        "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560"
+          "Host": "45.159.148.180"
+        }
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS Reality 1)",
+      "server": "45.159.216.13",
+      "server_port": 8880,
+      "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560",
+        "headers": {
+          "Host": "45.159.216.13"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
       "server": "45.35.126.48",
       "server_port": 8443,
       "uuid": "d2e3f4a5-b6c7-2345-8901-123456789abc",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "server_name": "www.speedtest.net",
+        "insecure": true,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "VWX1234567890abcdef1234567890abcdef"
+          "public_key": "VWX1234567890abcdef1234567890abcdef",
+          "short_id": ""
         }
-      },
-      "transport": {
-        "type": "tcp"
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS Reality 2)",
       "server": "45.35.126.48",
       "server_port": 443,
       "uuid": "b2c3d4e5-f6a7-2345-8901-bcdef0123456",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "server_name": "www.speedtest.net",
+        "insecure": true,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "GHI1234567890abcdef1234567890abcdef"
+          "public_key": "GHI1234567890abcdef1234567890abcdef",
+          "short_id": ""
         }
-      },
-      "transport": {
-        "type": "tcp"
       }
     },
     {
+      "tag": "Unknown Tag",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 18)",
-      "server": "www.speedtest.net",
+      "server": "45.38.42.220",
+      "server_port": 2085,
+      "uuid": "d80b9af5-5351-4d37-8ba5-c9a7fca650f6",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.8.146.207",
+      "server_port": 80,
+      "uuid": "a6c4db3e-7785-429e-8bc5-9eaf7b1a79b1",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/vless/",
+        "headers": {
+          "Host": "45.8.146.207"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.8.211.183",
+      "server_port": 80,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@ShadowProxy66/?ed=2560",
+        "headers": {
+          "Host": "45.8.211.183"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.8.211.239",
+      "server_port": 80,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM@YamYamProxy_YamYamProxy_YamYamProxy/?ed=2560",
+        "headers": {
+          "Host": "45.8.211.239"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.80.110.8",
       "server_port": 8880,
-      "uuid": "TELEGRAM-NUFiLTER",
-      "tls": {
-        "enabled": false
-      },
-      "transport": {
-        "type": "httpupgrade",
-        "headers": {
-          "Host": ["kk50.4qwertyuiopasdfghjklzxcvbnmmnbvcxzlkjhgfdsapoiuytrewq1234567890.pro."]
-        },
-        "path": "/telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER"
-      }
+      "uuid": "b99590df-eda0-4e34-e1a9-3d1118faed83",
+      "flow": "",
+      "packet_encoding": "xudp"
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "vless",
-      "tag": "Telegram = @SOSkeyNET (VLESS 19)",
-      "server": "91.99.170.191",
-      "server_port": 443,
-      "uuid": "36ee3f5a-3816-4c0a324-47531167e53b",
-      "tls": {
-        "enabled": false
-      },
+      "server": "45.80.111.251",
+      "server_port": 8880,
+      "uuid": "0132166f-e702-48ed-a9e7-b07af768faf8",
+      "flow": "",
+      "packet_encoding": "xudp",
       "transport": {
-        "type": "tcp",
-        "tcp_fast_open": true,
-        "tcp_multi_path": true,
-        "tcp_flow": "none",
-        "tcp_congestion": "bbr",
-        "tcp_tfo": true,
+        "type": "ws",
+        "path": "/",
         "headers": {
-          "type": "http",
-          "request": {
-            "path": ["/"],
-            "headers": {
-              "Host": ["zula.ir"]
-            }
-          }
+          "Host": "45.80.111.251"
         }
       }
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "45.82.251.69",
+      "server_port": 1001,
+      "uuid": "c7c922da-ab54-433c-8046-1f9bf9d95c23",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "telewebion.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "8Gunn8hjWbit5yLtTPcvLph0u2ovHLsGoXX4IJS1EQ0",
+          "short_id": "5fab0deb"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "shadowsocks",
-      "tag": "Telegram = @SOSkeyNET (SS 3)",
+      "server": "45.87.175.10",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
+      "server": "45.87.175.28",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "46.101.199.91",
+      "server_port": 8080,
+      "uuid": "65951889-54af-453f-a7a1-55b91e5a5ad5",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "46.102.157.79",
+      "server_port": 58096,
+      "uuid": "d3f3fdd0-a087-9bab-0e07-ba22bd9a6e34",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "46.102.157.79",
+      "server_port": 58096,
+      "uuid": "d3f3fdd0-a087-9bab-0e07-ba22bd9a6e34",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "46.31.76.3",
+      "server_port": 80,
+      "uuid": "e05482d4-ba12-41ac-af45-2bf2afc56b4a",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "journalofbigdata.springeropen.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "oTX6mQJYxkmmdF7Rq_stAKX_hYoOMXGaWmoblFl2zgo",
+          "short_id": "5942e2"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "46.31.76.3",
+      "server_port": 80,
+      "uuid": "ffc13868-bc71-490e-84db-5722873cf0f5",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "journalofbigdata.springeropen.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "oTX6mQJYxkmmdF7Rq_stAKX_hYoOMXGaWmoblFl2zgo",
+          "short_id": "5942e2"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "46.38.144.243",
+      "server_port": 8080,
+      "uuid": "f388ff19-134f-4690-991a-5b73130b8325",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "46.38.144.243"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "46.38.150.199",
+      "server_port": 9090,
+      "uuid": "31a0713a-2c36-41ec-8bc5-52a5f546cc4e",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "47.239.205.13",
+      "server_port": 443,
+      "uuid": "3e7f67de-648e-4871-b51a-a225214d41ee",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.userway.org",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "TRP10HqKUXEQ3O-cfsq93DycfBmbJe9KM36yvSa8Mmw",
+          "short_id": ""
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "47.251.95.178",
+      "server_port": 443,
+      "uuid": "ea286109-d20f-415e-849e-4af20ab04b65",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "147135001195.sec22org.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
+      "server": "series-a1.samanehha.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "W74XFALLLuw6m5IA"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
+      "server": "series-a2-me.samanehha.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "Bog0ELmMM9DSxDdQ"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
+      "server": "series-a2-mec.samanehha.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
+      "server": "series-a2-mec.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "shadowsocks",
       "server": "series-a2.samanehha.co",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
-      "password": "mps3FwMDjLwRWhTgo0tM72I"
+      "password": "mps3FwmDjLrWaOVg"
     },
     {
+      "tag": "⚡Telegram = @SOSkeyNET",
       "type": "shadowsocks",
-      "tag": "Telegram = @SOSkeyNET (SS 4)",
-      "server": "45.87.175.192",
-      "server_port": 8080,
+      "server": "series-a2.varzesh360.co",
+      "server_port": 443,
       "method": "chacha20-ietf-poly1305",
-      "password": "1RWwXhwdFAB5gAEozU4GMlfg"
+      "password": "mps3FwmDjLrWaOVg"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "ws.mciickoir.ir",
+      "server_port": 9620,
+      "uuid": "3ed3966a-ca0e-4a46-a437-8000836fa495",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "aee7f4dd-1505-4efe-a081-199a3d9b7b97",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/ELENaTheGreatDictator----ELiV2RAY----ELiV2RAY----ELiV2RAY----ELiV2RAY----ELiV2RAY?ed=2560",
+        "headers": {
+          "Host": "pAmchALL.COm."
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 8880,
+      "uuid": "TELEGRAM-NUFiLTER",
+      "flow": "",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "aee7f4dd-1505-4efe-a081-199a3d9b7b97",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/Mosiv2---Mosiv2--Mosiv2---Mosiv2--Mosiv2---Mosiv2--Mosiv2---Mosiv2--Mosiv2---Mosiv2--Mosiv2---Mosiv2--Mosiv2---Mosiv2?ed=2560",
+        "headers": {
+          "Host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/ Telegram-mtmvpn---Telegram-mtmvpn---Telegram-mtmvpn/?ed=2560",
+        "headers": {
+          "Host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "9f467d8b-ea26-4b2b-b866-399638bc9a1c",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy?ed=2048",
+        "headers": {
+          "Host": "www.speedtest.net"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.166.65",
+      "server_port": 80,
+      "uuid": "4380f668-616f-4cdf-876e-627c4c02c7d0",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "aider.chat",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "nuNgT0HxAJ7YZPfM5uYM_-8aDKvCmr9jQpxBUMRjJRE",
+          "short_id": "39f0afc3"
+        }
+      }
+    },
+    {
+      "tag": "⚡Telegram = @SOSkeyNET",
+      "type": "vless",
+      "server": "91.99.170.191",
+      "server_port": 443,
+      "uuid": "36ee3f5a-3816-4c0a324-47531167e53b",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.99.170.191",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
     }
   ],
   "route": {
-    "rules": [
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rule_set": [
       {
-        "protocol": "dns",
-        "outbound": "dns-out"
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-ads",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/category-ads-all.srs"
       },
       {
-        "ip_is_private": true,
-        "outbound": "direct"
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-private",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/private.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-ir",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/category-ir.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geoip-private",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geoip/private.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geoip-ir",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geoip/ir.srs"
       }
     ],
-    "final": "proxy",
-    "auto_detect_interface": true,
-    "override_android_vpn": true
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "store_rdrc": true
-    }
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "action": "route",
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "outbound": "proxy"
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      },
+      {
+        "action": "route",
+        "outbound": "direct",
+        "rule_set": [
+          "geoip-private",
+          "geosite-private",
+          "geosite-ir",
+          "geoip-ir"
+        ]
+      },
+      {
+        "action": "reject",
+        "rule_set": [
+          "geosite-ads"
+        ]
+      }
+    ]
   }
 }
